@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistasCineWPF", "VistasCineWPF\VistasCineWPF.csproj", "{6FCB755A-3107-4BF6-9B82-149AA599D9D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FCB755A-3107-4BF6-9B82-149AA599D9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FCB755A-3107-4BF6-9B82-149AA599D9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FCB755A-3107-4BF6-9B82-149AA599D9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FCB755A-3107-4BF6-9B82-149AA599D9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {915DFF04-345A-40F9-A5A9-ACEB02305E10}
+	EndGlobalSection
+EndGlobal
