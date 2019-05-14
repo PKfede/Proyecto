@@ -23,5 +23,19 @@ namespace VistasCineWPF
         {
             InitializeComponent();
         }
+
+        private void BtnRegresarMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.Show();
+            this.Close();
+        }
+
+        private void BtnSelecionarCant_Click(object sender, RoutedEventArgs e)
+        {
+            CantidadBoletosView cant = new CantidadBoletosView();
+            cant.Show();
+            this.Close();
+        }
     }
 }

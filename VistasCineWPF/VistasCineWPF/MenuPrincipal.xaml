@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VistasCineWPF"
         mc:Ignorable="d"
-        Title="MenuPrincipal" Height="282" Width="383" ResizeMode="CanMinimize">
+        Title="MenuPrincipal" Height="343.5" Width="447.5" ResizeMode="CanMinimize">
 
     <Grid HorizontalAlignment="Left" Width="383" Margin="0,0,-6,-4">
-        <Grid HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="215" Background="#FF353538" Margin="163,0,0,0">
+        <Grid HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="284" Background="#FF5B7EDA" Margin="163,0,-64,0">
             <Label Content="Cine Universal" HorizontalAlignment="Left" Margin="45,-1,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="35" Width="126"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="252" VerticalAlignment="Top" Width="163" Background="#FF353538">
-            <Button x:Name="btnCrearFunciones" Content="Crear Funciones" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Width="163" Height="40" FontFamily="Castellar" Background="#FF353538" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FF353538" Click="BtnCrearFunciones_Click" Foreground="White"/>
-            <Button x:Name="btnCorte" Content="Punto de Corte" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" Width="163" Background="#FF353538" Height="40
-                    " FontFamily="Castellar" BorderBrush="#FF353538" Click="BtnCorte_Click" Foreground="White"/>
+        <Grid HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA">
+            <Button x:Name="btnCrearFunciones" Content="Crear Funciones" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Width="163" Height="40" Background="#FF5B7EDA" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FF5B7EDA" Click="BtnCrearFunciones_Click" Foreground="White" FontSize="18"/>
+            <Button x:Name="btnCorte" Content="Punto de Corte" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40
+                    " BorderBrush="#FF5B7EDA" Click="BtnCorte_Click" Foreground="White" FontSize="18"/>
         </Grid>
-        <Button x:Name="btnFunExisten" Content="Funciones Existentes" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Width="163" Background="#FF353538" Height="40" FontFamily="Castellar" BorderBrush="#FF353538" Click="BtnFunExisten_Click" Foreground="White"/>
-        <Button x:Name="btnRegistro" Content="Registros" HorizontalAlignment="Left" Margin="0,196,0,0" VerticalAlignment="Top" Width="163" Background="#FF353538" Height="40" FontFamily="Castellar" BorderBrush="#FF353538" Click="BtnRegistro_Click" Foreground="White"/>
-        <Image HorizontalAlignment="Left" Height="213" Margin="163,34,0,0" VerticalAlignment="Top" Width="215" Source="LogoCine.jpg"/>
+        <Button x:Name="btnFunExisten" Content="Venta Funciones" HorizontalAlignment="Left" Margin="0,94,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40" BorderBrush="#FF5B7EDA" Click="BtnFunExisten_Click" Foreground="White" FontSize="18"/>
+        <Button x:Name="btnRegistro" Content="Registros" HorizontalAlignment="Left" Margin="0,269,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40" BorderBrush="#FF5B7EDA" Click="BtnRegistro_Click" Foreground="White" FontSize="18"/>
+        <Image HorizontalAlignment="Left" Height="275" Margin="163,34,-106,0" VerticalAlignment="Top" Width="326" Source="LogoCine.jpg"/>
+        <DataGrid HorizontalAlignment="Left" Height="100" Margin="774,18,-491,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 
 

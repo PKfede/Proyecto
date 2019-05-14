@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VistasCineWPF"
         mc:Ignorable="d"
-        Title="RegistroUsuario" Height="322.222" Width="285.555">
-    <Grid Margin="0,0,-8,1">
+        Title="RegistroUsuario" Height="370" Width="289.999">
+    <Grid Margin="0,0,2,1">
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="11,60,0,0" VerticalAlignment="Top"/>
         <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="11,95,0,0" VerticalAlignment="Top"/>
         <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="11,138,0,0" VerticalAlignment="Top"/>
@@ -17,8 +17,8 @@
         <TextBox x:Name="txtNomUsuario" HorizontalAlignment="Left" Height="23" Margin="136,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="11,218,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="23" Margin="136,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnConfirmarRegistro" Content="Confirmar" HorizontalAlignment="Left" Margin="136,264,0,0" VerticalAlignment="Top" Width="75" Click="BtnConfirmarRegistro_Click"/>
-        <Grid HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="286" Background="#FF3855D4"/>
+        <Button x:Name="btnConfirmarRegistro" Content="Confirmar&gt;" HorizontalAlignment="Left" Margin="0,268,0,0" VerticalAlignment="Top" Width="286" Click="BtnConfirmarRegistro_Click" Height="70" Background="#FF5B7EDA" FontSize="16"/>
+        <Grid HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="286" Background="#FF5B7EDA"/>
 
     </Grid>
 </Window>

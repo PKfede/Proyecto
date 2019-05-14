@@ -35,5 +35,7 @@ namespace VistasCineWPF
             menu.Show();
             this.Close();
         }
+
+   
     }
 }

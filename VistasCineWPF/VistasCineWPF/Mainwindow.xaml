@@ -5,19 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VistasCineWPF"
         mc:Ignorable="d"
-        Title="Login" Height="332" Width="222.5" ResizeMode="CanMinimize">
-    <Grid Margin="0,0,0,7" HorizontalAlignment="Left" Width="212">
+        Title="Login" Height="322.766" Width="370" ResizeMode="CanMinimize">
+    <Grid HorizontalAlignment="Left" Width="378" Margin="0,0,0,3">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="197"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="cmbUsuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="80,133,0,0"/>
-        <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="23" Margin="80,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="61,19,0,0" VerticalAlignment="Top" Width="100" Source=" LogoCine.jpg"/>
-        <Label Content="Usuarios
-" HorizontalAlignment="Left" Margin="6,133,0,0" VerticalAlignment="Top"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="6,182,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnIniciarSesion" Content="Inicio sesión" HorizontalAlignment="Left" Margin="80,226,0,0" VerticalAlignment="Top" Width="96" Click="BtnIniciarSesion_Click"/>
-        <Button x:Name="btnNuevoUsuario" Content="Nuevo usuario" HorizontalAlignment="Left" Margin="80,251,0,0" VerticalAlignment="Top" Width="96" Click="BtnNuevoUsuario_Click"/>
+        <Grid HorizontalAlignment="Left" Height="291" Margin="0,0,-197,0" VerticalAlignment="Top" Width="395" Background="#FF5B7EDA">
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="146" Margin="108,70,0,0" Stroke="White" VerticalAlignment="Top" Width="145" RadiusY="13.5" RadiusX="13.5"/>
+            <StackPanel Margin="76,139,87,0" Orientation="Vertical"/>
+            <Label Content="CINE UNIVERSAL" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        </Grid>
+
+        <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="23" Margin="120,180,-8,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="120,99,-71,0" VerticalAlignment="Top" FontSize="14" Width="149" Foreground="#FF8F8F8F"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="120,151,-25,0" VerticalAlignment="Top" FontSize="14" Width="103" Foreground="#FF8F8F8F" RenderTransformOrigin="0.968,0.793"/>
+        <Button x:Name="btnIniciarSesion" Content="Inicio de sesión" HorizontalAlignment="Left" Margin="198,243,-137,0" VerticalAlignment="Top" Width="137" Click="BtnIniciarSesion_Click" Background="#FF41EA26" BorderBrush="#FF41EA26" Height="48" FontSize="18" Foreground="White"/>
+        <Button x:Name="btnNuevoUsuario" Content="Nuevo usuario" HorizontalAlignment="Left" Margin="29,243,0,0" VerticalAlignment="Top" Width="137" Click="BtnNuevoUsuario_Click" Background="#FF41EA26" BorderBrush="#FF41EA26" Foreground="White" Height="48" FontSize="18" RenderTransformOrigin="0.141,0.472"/>
+        <TextBox x:Name="txtUsuarios" HorizontalAlignment="Left" Height="23" Margin="120,128,-8,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" TextChanged="txtUsuario_Click"/>
+        <Label Content="Login" Margin="135,65,-8,0" VerticalAlignment="Top" FontSize="18"/>
 
     </Grid>
 </Window>

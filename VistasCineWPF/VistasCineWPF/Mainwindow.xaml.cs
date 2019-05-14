@@ -38,5 +38,10 @@ namespace VistasCineWPF
             registro.Show();
             this.Close();
         }
+
+        private void txtUsuario_Click(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
