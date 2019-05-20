@@ -29,3 +29,7 @@ C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\Puntod
 C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\FuncionExistente.baml
 C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\Historial.baml
 C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\PuntodeCorte.baml
+C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\AgregarPelicula.g.cs
+C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\VentaFinal.g.cs
+C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\AgregarPelicula.baml
+C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\VentaFinal.baml

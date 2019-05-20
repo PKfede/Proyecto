@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AgregarPelicula.xaml.cs">
+      <DependentUpon>AgregarPelicula.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearFuncion.xaml.cs">
       <DependentUpon>CrearFuncion.xaml</DependentUpon>
     </Compile>
@@ -67,9 +70,16 @@
     <Compile Include="PuntodeCorte.xaml.cs">
       <DependentUpon>PuntodeCorte.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentaFinal.xaml.cs">
+      <DependentUpon>VentaFinal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="AgregarPelicula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrearFuncion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +123,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentaFinal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
