@@ -9,7 +9,8 @@ CREATE TABLE tarifa(fecha VARCHAR(50), hora VARCHAR(50), precio NUMERIC PRIMARY 
 
 CREATE TABLE pelicula(idPelicula INT PRIMARY KEY NOT NULL,nombre VARCHAR(50));
 
-CREATE TABLE funcion(idFuncion VARCHAR(50), fechaFuncion VARCHAR(50), horaFuncion VARCHAR(50), asientosDisponibles INT, asientosOcupados INT,
+CREATE TABLE funcion(idFuncion VARCHAR(50), fechaFuncion VARCHAR(50), horaFuncion VARCHAR(50),
+asientosDisponibles INT, asientosOcupados INT, asientoAsignado VARCHAR(3), diagrama VARCHAR(220),
 fk_precio NUMERIC FOREIGN KEY REFERENCES tarifa(precio), fk_idPelicula INT FOREIGN KEY REFERENCES pelicula(idPelicula), 
 CONSTRAINT PK_FUNCION PRIMARY KEY(idFuncion, fk_precio));
 
@@ -23,6 +24,12 @@ GO
 --@idFuncion VARCHAR
 --@asientosDisponibles INT
 --@asientosOcupados INT
+--@asientoAsignado
+--AS
+--
+--
+--
+--
 --
 --
 --
