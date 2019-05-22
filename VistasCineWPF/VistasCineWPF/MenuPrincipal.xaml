@@ -13,13 +13,13 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA">
             <Button x:Name="btnCrearFunciones" Content="Crear Funciones" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Width="163" Height="40" Background="#FF5B7EDA" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FF5B7EDA" Click="BtnCrearFunciones_Click" Foreground="White" FontSize="18"/>
-            <Button x:Name="btnCorte" Content="Punto de Corte" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40
+            <Button x:Name="btnCorte" Content="Punto de Corte" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40
                     " BorderBrush="#FF5B7EDA" Click="BtnCorte_Click" Foreground="White" FontSize="18"/>
+            <Button x:Name="btnAgregarPelicula" Content="Agregar Pelicula" HorizontalAlignment="Left" Margin="0,198,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40                     " BorderBrush="#FF5B7EDA" Click="BtnAgregarPelicula_Click" Foreground="White" FontSize="18"/>
         </Grid>
-        <Button x:Name="btnFunExisten" Content="Venta Funciones" HorizontalAlignment="Left" Margin="0,94,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40" BorderBrush="#FF5B7EDA" Click="BtnFunExisten_Click" Foreground="White" FontSize="18"/>
+        <Button x:Name="btnFunExisten" Content="Venta Funciones" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40" BorderBrush="#FF5B7EDA" Click="BtnFunExisten_Click" Foreground="White" FontSize="18"/>
         <Button x:Name="btnRegistro" Content="Registros" HorizontalAlignment="Left" Margin="0,269,0,0" VerticalAlignment="Top" Width="163" Background="#FF5B7EDA" Height="40" BorderBrush="#FF5B7EDA" Click="BtnRegistro_Click" Foreground="White" FontSize="18"/>
-        <Image HorizontalAlignment="Left" Height="275" Margin="163,34,-106,0" VerticalAlignment="Top" Width="326" Source="LogoCine.jpg"/>
-        <DataGrid HorizontalAlignment="Left" Height="100" Margin="774,18,-491,0" VerticalAlignment="Top" Width="100"/>
+        <Image HorizontalAlignment="Left" Height="275" Margin="163,34,-64,0" VerticalAlignment="Top" Width="284" Source="LogoCine.jpg"/>
     </Grid>
 
 

@@ -51,5 +51,10 @@ namespace VistasCineWPF
             historial.Show();
             this.Close();
         }
+
+        private void BtnAgregarPelicula_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
