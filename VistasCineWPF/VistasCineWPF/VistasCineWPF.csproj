@@ -58,6 +58,9 @@
     <Compile Include="AgregarPelicula.xaml.cs">
       <DependentUpon>AgregarPelicula.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Asientos.xaml.cs">
+      <DependentUpon>Asientos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearFuncion.xaml.cs">
       <DependentUpon>CrearFuncion.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="AgregarPelicula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Asientos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LogoCine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="seat-outline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

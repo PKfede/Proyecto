@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\obj\Debug\
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\
 VistasCineWPF
 none
 false
 DEBUG;TRACE
-C:\Users\FEDERICO DIAZ\source\repos\VistasCineWPF\VistasCineWPF\App.xaml
-11-702199773
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\App.xaml
+12-1754312208
 
-19-1324447760
+20867044719
 131569487696
-AgregarPelicula.xaml;CrearFuncion.xaml;FuncionExistente.xaml;Historial.xaml;PuntodeCorte.xaml;RegistroUsuario.xaml;CantidadBoletosView.xaml;Mainwindow.xaml;MenuPrincipal.xaml;VentaFinal.xaml;Window1.xaml;
+AgregarPelicula.xaml;Asientos.xaml;CrearFuncion.xaml;FuncionExistente.xaml;Historial.xaml;PuntodeCorte.xaml;RegistroUsuario.xaml;CantidadBoletosView.xaml;Mainwindow.xaml;MenuPrincipal.xaml;VentaFinal.xaml;Window1.xaml;
 
 True
 
