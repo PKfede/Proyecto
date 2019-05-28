@@ -5,20 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VistasCineWPF"
         mc:Ignorable="d"
-        Title="RegistroUsuario" Height="370" Width="289.999">
-    <Grid Margin="0,0,2,1">
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="11,60,0,0" VerticalAlignment="Top"/>
-        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="11,95,0,0" VerticalAlignment="Top"/>
-        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="11,138,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nombre de usuario                " HorizontalAlignment="Left" Margin="11,178,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNombreRegistro" HorizontalAlignment="Left" Height="23" Margin="136,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtApellidoPa" HorizontalAlignment="Left" Height="23" Margin="136,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtApellidoMa" HorizontalAlignment="Left" Height="23" Margin="136,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtNomUsuario" HorizontalAlignment="Left" Height="23" Margin="136,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="11,218,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="23" Margin="136,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnConfirmarRegistro" Content="Confirmar&gt;" HorizontalAlignment="Left" Margin="0,268,0,0" VerticalAlignment="Top" Width="286" Click="BtnConfirmarRegistro_Click" Height="70" Background="#FF5B7EDA" FontSize="16"/>
-        <Grid HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="286" Background="#FF5B7EDA"/>
+        Title="Registro de usuario" Height="350" Width="600">
+    <StackPanel>
+        <Grid>
+            <Label Content="Cine Universal" HorizontalAlignment="Center" Width="142" FontFamily="Cambria" FontSize="20" Margin="222,0,229.6,-0.4"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="LogoCine.jpg"/>
 
-    </Grid>
+            <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                <Label Content="Nombre" HorizontalAlignment="left" Foreground="#FF5D5A5A" />
+                <TextBox x:Name="txtNombreRegistro" HorizontalAlignment="left" Text="{Binding WorkingItem.nombre, Mode=TwoWay}" Margin="0,0,0,3" Height="23" Width="120"/>
+                <Label Content="Apellido paterno" HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
+                <TextBox x:Name="txtApellidoPa" Text="{Binding WorkingItem.apPaterno, Mode = TwoWay}" HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
+                <Label Content="Apellido materno" HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
+                <TextBox x:Name="txtApellidoMa" Text="{Binding WorkingItem.apMaterno, Mode = TwoWay}"  HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
+                <Label Content="Nombre de usuario"  HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
+                <TextBox HorizontalAlignment="left" Text ="{Binding WorkingItem.nombre_usuario, Mode=TwoWay}" Margin="0,3,0,3" Height="23" Width="120"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <Label Content="Contraseña" HorizontalAlignment="left" Foreground="#FF5D5A5A"/>
+                <TextBox HorizontalAlignment="left" Text="{Binding WorkingItem.contra, Mode=TwoWay}" Margin="0,0,0,3" Height="23" Width="120"/>
+                <Label Content="Confirmar contraseña" HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
+                <TextBox HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
+                <Label Content="Telefono" HorizontalAlignment="Left" Foreground="#FF5D5A5A" />
+                <TextBox  HorizontalAlignment="left" Text="{Binding WorkingItem.telTaquillero, Mode=TwoWay}" Margin="0,3,0,3" Height="23" Width="120"/>
+                <Label Content="Tipo de usuario" Foreground="#FF5D5A5A"/>
+                <ComboBox ItemsSource="{Binding ItemsComboBox}" SelectedItem="{Binding WorkingItem.tipoUsuario, Mode=TwoWay}"  Width="120" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Grid>
+        <Button Content="Registrarse" Command="{Binding AddCommand}" Width="100" Margin="120,20,0,0"/>
+    </StackPanel>
 </Window>
