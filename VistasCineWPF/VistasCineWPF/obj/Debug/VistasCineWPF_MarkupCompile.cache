@@ -9,12 +9,12 @@ VistasCineWPF
 none
 false
 DEBUG;TRACE
-C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\App.xaml
-12-1754312208
-
-16-1374130096
-131569487696
-AgregarPelicula.xaml;Asientos.xaml;CrearFuncion.xaml;FuncionExistente.xaml;Historial.xaml;PuntodeCorte.xaml;RegistroUsuario.xaml;CantidadBoletosView.xaml;Mainwindow.xaml;MenuPrincipal.xaml;VentaFinal.xaml;Window1.xaml;
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\Views\App.xaml
+12-266844740
+2-1901779198
+281223500587
+18-586252307
+Views\AgregarPelicula.xaml;Views\Asientos.xaml;Views\CrearFuncion.xaml;Views\FuncionExistente.xaml;Views\Historial.xaml;Views\PuntodeCorte.xaml;Views\RegistroUsuario.xaml;Views\CantidadBoletosView.xaml;Views\Mainwindow.xaml;Views\MenuPrincipal.xaml;Views\VentaFinal.xaml;Views\Window1.xaml;
 
 False
 
