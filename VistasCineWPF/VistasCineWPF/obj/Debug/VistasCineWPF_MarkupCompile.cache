@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\Views\App.xaml
-12-266844740
+14579243723
 2-1901779198
-281223500587
-18-586252307
-Views\AgregarPelicula.xaml;Views\Asientos.xaml;Views\CrearFuncion.xaml;Views\FuncionExistente.xaml;Views\Historial.xaml;Views\PuntodeCorte.xaml;Views\RegistroUsuario.xaml;Views\CantidadBoletosView.xaml;Views\Mainwindow.xaml;Views\MenuPrincipal.xaml;Views\VentaFinal.xaml;Views\Window1.xaml;
+31-593866848
+20-171524695
+Views\AgregarPelicula.xaml;Views\Asientos.xaml;Views\AsientosMapa.xaml;Views\CrearFuncion.xaml;Views\FuncionExistente.xaml;Views\Historial.xaml;Views\PuntodeCorte.xaml;Views\RegistroUsuario.xaml;Views\CantidadBoletosView.xaml;Views\Mainwindow.xaml;Views\MenuPrincipal.xaml;Views\UserControl2.xaml;Views\VentaFinal.xaml;Views\Window1.xaml;
 
 False
 

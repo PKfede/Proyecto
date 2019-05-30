@@ -75,4 +75,7 @@ C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\MenuPrincipal.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\VentaFinal.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\Window1.baml
-C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\VistasCineWPF.csprojAssemblyReference.cache
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\UserControl2.g.cs
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\UserControl2.baml
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\AsientosMapa.baml
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\AsientosMapa.g.cs

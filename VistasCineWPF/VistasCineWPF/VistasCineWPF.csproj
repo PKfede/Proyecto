@@ -44,8 +44,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,6 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\AsientosMapaViewModel.cs" />
     <Compile Include="Views\AgregarPelicula.xaml.cs">
       <DependentUpon>AgregarPelicula.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>cineEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AsientosMapa.xaml.cs">
+      <DependentUpon>AsientosMapa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CrearFuncion.xaml.cs">
       <DependentUpon>CrearFuncion.xaml</DependentUpon>
@@ -113,6 +119,9 @@
     <Compile Include="Model\usuario.cs">
       <DependentUpon>cineEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControl2.xaml.cs">
+      <DependentUpon>UserControl2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VentaFinal.xaml.cs">
       <DependentUpon>VentaFinal.xaml</DependentUpon>
     </Compile>
@@ -127,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Asientos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AsientosMapa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +186,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControl2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -38,6 +38,7 @@
                 <Label Content="Tipo de usuario" Foreground="#FF5D5A5A"/>
                 <ComboBox ItemsSource="{Binding ItemsComboBox}" SelectedItem="{Binding WorkingItem.tipoUsuario, Mode=TwoWay}"  Width="120" HorizontalAlignment="Left"/>
             </StackPanel>
+            <Image HorizontalAlignment="Left" Height="100" Margin="74,113,0,0" VerticalAlignment="Top" Width="100"/>
         </Grid>
         <Button Content="Registrarse" Command="{Binding AddCommand}" Width="100" Margin="120,20,0,0"/>
     </StackPanel>
