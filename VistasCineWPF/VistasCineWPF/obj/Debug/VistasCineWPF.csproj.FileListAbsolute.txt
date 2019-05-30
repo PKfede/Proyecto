@@ -79,3 +79,4 @@ C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\UserControl2.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\AsientosMapa.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\AsientosMapa.g.cs
+C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\VistasCineWPF.csprojAssemblyReference.cache

@@ -34,17 +34,49 @@ namespace VistasCineWPF.Views
                     SeatsTop.Add(i);
             }
             SeatsMid = new ObservableCollection<int>();
-            for (int i = 1; i <= 102; i++)
-            {
 
-                SeatsMid.Add(i+19);
+            //for (int i = 1; i <= 102; i++)
+            //{
+                
+            //    SeatsMid.Add(i+19);
+
+            //}
+
+            for (int j = 1; j <= 6; j++)
+            {
+                if (j <= 7)
+                {
+                    for (int i = 1; i <= 17; i++)
+                    {
+
+                        SeatsMid.Add(i);
+
+                    }
+                    
+                }
             }
+
             SeatsBot = new ObservableCollection<int>();
-            for (int i = 1; i <= 98; i++)
-            {
+            //for (int i = 1; i <= 98; i++)
+            //{
 
-                SeatsBot.Add(i+121);
+            //    SeatsBot.Add(i+121);
+            //}
+
+            for (int j = 1; j <= 7; j++)
+            {
+                if (j <= 7)
+                {
+                    for (int i = 1; i <= 14; i++)
+                    {
+
+                        SeatsBot.Add(i);
+
+                    }
+
+                }
             }
+
             InitializeComponent();
         }
     }
