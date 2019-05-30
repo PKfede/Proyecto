@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VistasCineWPF.ViewModel;
 
 namespace VistasCineWPF
 {
@@ -26,9 +27,7 @@ namespace VistasCineWPF
 
         private void BtnRegresarMenu_Click(object sender, RoutedEventArgs e)
         {
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.Show();
-            this.Close();
+           
         }
 
         private void BtnSelecionarCant_Click(object sender, RoutedEventArgs e)

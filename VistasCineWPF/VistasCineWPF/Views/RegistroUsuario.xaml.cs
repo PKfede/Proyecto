@@ -26,9 +26,6 @@ namespace VistasCineWPF.Views
             DataContext = new RegistroViewModel();
         }
 
-        private void BtnConfirmarRegistro_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }
