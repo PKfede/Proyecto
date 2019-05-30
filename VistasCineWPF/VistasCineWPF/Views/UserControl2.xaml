@@ -8,14 +8,9 @@
              Background="#FF7DB2E6"
              DataContext="{Binding RelativeSource={RelativeSource Self}}" Height="505.5" Width="716">
 
-    <StackPanel Background="White" RenderTransformOrigin="0.505,0.608" HorizontalAlignment="Right" Width="716" Height="570" VerticalAlignment="Top" Margin="0,0,0,-64">
+    <Grid Background="#FF08517C" RenderTransformOrigin="0.505,0.608" HorizontalAlignment="Left" Width="818" Height="570" VerticalAlignment="Top" Margin="0,0,-102,-64">
         <TextBlock HorizontalAlignment="Center" Text="Asientos" FontSize="24" Margin="0,10"/>
-        <ItemsControl Background="#FFFFB06F">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate/>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
-        <ItemsControl ItemsSource="{Binding SeatsTop}" Background="#FFECBABA" Margin="0,0,-36,0" HorizontalAlignment="Right" Width="751">
+        <ItemsControl ItemsSource="{Binding SeatsTop}" Background="#FF08517C" Margin="-11,43,-24,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="751">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -41,15 +36,17 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <ItemsControl ItemsSource="{Binding SeatsMid}" Background="#FFF7CFCF" Margin="-2,0,-96,0" HorizontalAlignment="Stretch"  Width="814">
+        <ItemsControl ItemsSource="{Binding SeatsMid}" Background="#FF08517C" Margin="-13,72,-85,0" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="814">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Rectangle x:Name="Seat" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
+
                         <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
                     </Grid>
                     <DataTemplate.Triggers>
+
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Seat" Property="Effect">
                                 <Setter.Value>
@@ -57,7 +54,16 @@
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
+
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="Seat" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
                     </DataTemplate.Triggers>
+
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
@@ -67,7 +73,7 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <ItemsControl ItemsSource="{Binding SeatsBot}" Background="#FFF9DBDB" Margin="0,0,-7,0" HorizontalAlignment="Right" Width="723">
+        <ItemsControl ItemsSource="{Binding SeatsBot}" Background="#FF08517C" Margin="-11,0,0,151" Height="204" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="722">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -94,11 +100,22 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
+        <Label Content="A" HorizontalAlignment="Left" Margin="120,388,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="B" HorizontalAlignment="Left" Margin="121,357,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="C" HorizontalAlignment="Left" Margin="121,326,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="D" HorizontalAlignment="Left" Margin="121,299,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="E" HorizontalAlignment="Left" Margin="124,270,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="F" HorizontalAlignment="Left" Margin="124,239,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="G" HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="H" HorizontalAlignment="Left" Margin="123,181,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="I" HorizontalAlignment="Left" Margin="127,155,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="J" HorizontalAlignment="Left" Margin="127,124,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="K" HorizontalAlignment="Left" Margin="124,94,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="L" HorizontalAlignment="Left" Margin="125,67,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="M" HorizontalAlignment="Left" Margin="55,39,0,0" VerticalAlignment="Top" FontSize="20"/>
 
-        <Grid Height="97" Margin="-78,0,0,0">
-            <Button Content="Button" HorizontalAlignment="Right" Margin="0,16,352,0" VerticalAlignment="Top" Width="76"/>
-        </Grid>
-    </StackPanel>
+
+    </Grid>
 
 
 
