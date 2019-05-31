@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="funcion">
+    <Key>
+      <PropertyRef Name="idFuncion" />
+      <PropertyRef Name="fk_precio" />
+    </Key>
+    <Property Name="idFuncion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fechaFuncion" Type="varchar" MaxLength="50" />
+    <Property Name="horaFuncion" Type="varchar" MaxLength="50" />
+    <Property Name="asientosDisponibles" Type="int" />
+    <Property Name="asientosOcupados" Type="int" />
+    <Property Name="asientoAsignado" Type="varchar" MaxLength="3" />
+    <Property Name="diagrama" Type="varchar" MaxLength="220" />
+    <Property Name="fk_precio" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="fk_idPelicula" Type="int" />
+  </EntityType>
+  <EntityType Name="pelicula">
+    <Key>
+      <PropertyRef Name="idPelicula" />
+    </Key>
+    <Property Name="idPelicula" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tarifa">
+    <Key>
+      <PropertyRef Name="precio" />
+    </Key>
+    <Property Name="fecha" Type="varchar" MaxLength="50" />
+    <Property Name="hora" Type="varchar" MaxLength="50" />
+    <Property Name="precio" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="descuento" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idTaquillero" />
+    </Key>
+    <Property Name="idTaquillero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apPaterno" Type="varchar" MaxLength="50" />
+    <Property Name="apMaterno" Type="varchar" MaxLength="50" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="50" />
+    <Property Name="contra" Type="varchar" MaxLength="50" />
+    <Property Name="telTaquillero" Type="varchar" MaxLength="11" />
+    <Property Name="tipoUsuario" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="idVenta" />
+    </Key>
+    <Property Name="idVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" />
+    <Property Name="hora" Type="varchar" MaxLength="50" />
+    <Property Name="importe" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="fk_idTaquillero" Type="int" />
+    <Property Name="idFuncion" Type="varchar" MaxLength="50" />
+    <Property Name="precio" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <Association Name="FK__funcion__fk_idPe__3E52440B">
+    <End Role="pelicula" Type="Self.pelicula" Multiplicity="0..1" />
+    <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pelicula">
+        <PropertyRef Name="idPelicula" />
+      </Principal>
+      <Dependent Role="funcion">
+        <PropertyRef Name="fk_idPelicula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__funcion__fk_prec__3D5E1FD2">
+    <End Role="tarifa" Type="Self.tarifa" Multiplicity="1" />
+    <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarifa">
+        <PropertyRef Name="precio" />
+      </Principal>
+      <Dependent Role="funcion">
+        <PropertyRef Name="fk_precio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventas__fk_idTaq__412EB0B6">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idTaquillero" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="fk_idTaquillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idFuncion">
+    <End Role="funcion" Type="Self.funcion" Multiplicity="0..1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcion">
+        <PropertyRef Name="idFuncion" />
+        <PropertyRef Name="fk_precio" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="idFuncion" />
+        <PropertyRef Name="precio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cineModelStoreContainer">
+    <EntitySet Name="funcion" EntityType="Self.funcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pelicula" EntityType="Self.pelicula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tarifa" EntityType="Self.tarifa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__funcion__fk_idPe__3E52440B" Association="Self.FK__funcion__fk_idPe__3E52440B">
+      <End Role="pelicula" EntitySet="pelicula" />
+      <End Role="funcion" EntitySet="funcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__funcion__fk_prec__3D5E1FD2" Association="Self.FK__funcion__fk_prec__3D5E1FD2">
+      <End Role="tarifa" EntitySet="tarifa" />
+      <End Role="funcion" EntitySet="funcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventas__fk_idTaq__412EB0B6" Association="Self.FK__ventas__fk_idTaq__412EB0B6">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idFuncion" Association="Self.fk_idFuncion">
+      <End Role="funcion" EntitySet="funcion" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
