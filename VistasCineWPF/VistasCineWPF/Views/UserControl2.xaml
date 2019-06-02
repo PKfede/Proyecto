@@ -13,7 +13,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid >
-                        <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="25px" Height="25px" Stroke="Black" Fill="Gray" Margin="2px"/>
+                        <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
                         <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
 
