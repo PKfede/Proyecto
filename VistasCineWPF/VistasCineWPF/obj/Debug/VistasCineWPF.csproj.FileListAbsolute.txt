@@ -53,7 +53,6 @@ C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\RegistroUsuario.g.cs
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\RegistroUsuario.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\AgregarPelicula.g.cs
-C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\Asientos.g.cs
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\CrearFuncion.g.cs
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\FuncionExistente.g.cs
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\Historial.g.cs
@@ -65,7 +64,6 @@ C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\Window1.g.cs
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\App.g.cs
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\AgregarPelicula.baml
-C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\Asientos.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\CrearFuncion.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\FuncionExistente.baml
 C:\Users\FEDERICO DIAZ\Documents\GitHub\Proyecto\VistasCineWPF\VistasCineWPF\obj\Debug\Views\Historial.baml

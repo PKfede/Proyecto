@@ -6,42 +6,50 @@
              xmlns:local="clr-namespace:VistasCineWPF.Views"
              mc:Ignorable="d"
              Background="#FF7DB2E6"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}" Height="505.5" Width="716">
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" Height="525" Width="683">
 
-    <Grid Background="#FF08517C" RenderTransformOrigin="0.505,0.608" HorizontalAlignment="Left" Width="818" Height="570" VerticalAlignment="Top" Margin="0,0,-102,-64">
-        <TextBlock HorizontalAlignment="Center" Text="Asientos" FontSize="24" Margin="0,10"/>
-        <ItemsControl ItemsSource="{Binding SeatsTop}" Background="#FF08517C" Margin="-11,43,-24,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="751">
+    <Grid Background="#FF08517C" RenderTransformOrigin="0.505,0.608" Height="550" VerticalAlignment="Top" Margin="-33,0,-22,-25" HorizontalAlignment="Right" Width="738">
+        <ItemsControl ItemsSource="{Binding SeatsTop}" Background="White" Margin="-11,43,-24,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="751">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Rectangle x:Name="Seat" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
+                    <Grid >
+                        <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
                         <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
+
                     </Grid>
+                    <!--<DataTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Seat" x:FieldModifier="Background" Property="Block.Background" Value="Red"></Setter>
+                        </Trigger>
+                    </DataTemplate.Triggers>-->
+
+
                     <DataTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Seat" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
                     </DataTemplate.Triggers>
+
+
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Height="29" Width="551" Background="White" VerticalAlignment="Center"/>
+                    <WrapPanel Height="29" Width="551" Background="Red" VerticalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <ItemsControl ItemsSource="{Binding SeatsMid}" Background="#FF08517C" Margin="-13,72,-85,0" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="814">
+        <ItemsControl ItemsSource="{Binding SeatsMid}" Background="#FF7C7108" Margin="-13,72,-61,0" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Width="812">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Rectangle x:Name="Seat" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
-
+                        <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
                         <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
                     </Grid>
@@ -50,7 +58,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Seat" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -69,15 +77,21 @@
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Height="174" Width="493" Background="White" VerticalAlignment="Center"/>
+                    <WrapPanel Height="175" Width="493" Background="Red" VerticalAlignment="Top"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <ItemsControl ItemsSource="{Binding SeatsBot}" Background="#FF08517C" Margin="-11,0,0,151" Height="204" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="722">
+        <ItemsControl ItemsSource="{Binding SeatsBot}" Background="#FF087C32" Margin="-11,247,27,0" Height="200" VerticalAlignment="Top">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Rectangle x:Name="Seat" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
+
+                        <Rectangle HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" MouseUp="Grid_MouseLeftButtonUp" Width="25px" Height="25px"
+                                     Stroke="Black" Fill="{Binding RcColor}" Margin="2px">
+                            <Rectangle.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding RcColor}"/>
+                            </Rectangle.InputBindings>
+                        </Rectangle>
                         <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
                     </Grid>
@@ -85,7 +99,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Seat" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -95,24 +109,25 @@
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Height="203" Width="406" Background="White" VerticalAlignment="Center"/>
+                    <WrapPanel Height="203" Width="406" Background="#FF6C6C6C" VerticalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-
-        <Label Content="A" HorizontalAlignment="Left" Margin="120,388,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="B" HorizontalAlignment="Left" Margin="121,357,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="C" HorizontalAlignment="Left" Margin="121,326,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="D" HorizontalAlignment="Left" Margin="121,299,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="E" HorizontalAlignment="Left" Margin="124,270,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="F" HorizontalAlignment="Left" Margin="124,239,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="G" HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="H" HorizontalAlignment="Left" Margin="123,181,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="I" HorizontalAlignment="Left" Margin="127,155,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="J" HorizontalAlignment="Left" Margin="127,124,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="K" HorizontalAlignment="Left" Margin="124,94,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="L" HorizontalAlignment="Left" Margin="125,67,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="M" HorizontalAlignment="Left" Margin="55,39,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="A" HorizontalAlignment="Left" Margin="120,413,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.797,-0.243"/>
+        <Label Content="B" HorizontalAlignment="Left" Margin="120,388,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="C" HorizontalAlignment="Left" Margin="121,357,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="D" HorizontalAlignment="Left" Margin="121,326,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="E" HorizontalAlignment="Left" Margin="121,299,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="F" HorizontalAlignment="Left" Margin="124,270,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="G" HorizontalAlignment="Left" Margin="120,237,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="H" HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="I" HorizontalAlignment="Left" Margin="123,181,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="J" HorizontalAlignment="Left" Margin="127,155,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="K" HorizontalAlignment="Left" Margin="123,124,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="L" HorizontalAlignment="Left" Margin="124,94,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="M" HorizontalAlignment="Left" Margin="121,64,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="N" HorizontalAlignment="Left" Margin="55,39,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button Content="Pantalla" HorizontalAlignment="Left" Margin="120,474,0,0" VerticalAlignment="Top" Width="528" Height="50" FontSize="36" IsEnabled="False"/>
 
 
     </Grid>

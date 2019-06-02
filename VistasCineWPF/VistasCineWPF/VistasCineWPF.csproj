@@ -70,9 +70,6 @@
     <Compile Include="Views\AgregarPelicula.xaml.cs">
       <DependentUpon>AgregarPelicula.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Asientos.xaml.cs">
-      <DependentUpon>Asientos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="Model\cineEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -132,10 +129,6 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AgregarPelicula.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Asientos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

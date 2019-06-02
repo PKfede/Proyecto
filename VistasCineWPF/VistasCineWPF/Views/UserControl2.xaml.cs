@@ -24,6 +24,7 @@ namespace VistasCineWPF.Views
         public ObservableCollection<int> SeatsTop { get; private set; }
         public ObservableCollection<int> SeatsMid { get; private set; }
         public ObservableCollection<int> SeatsBot { get; private set; }
+        
 
         public UserControl2()
         {
@@ -34,13 +35,6 @@ namespace VistasCineWPF.Views
                     SeatsTop.Add(i);
             }
             SeatsMid = new ObservableCollection<int>();
-
-            //for (int i = 1; i <= 102; i++)
-            //{
-                
-            //    SeatsMid.Add(i+19);
-
-            //}
 
             for (int j = 1; j <= 6; j++)
             {
@@ -57,11 +51,7 @@ namespace VistasCineWPF.Views
             }
 
             SeatsBot = new ObservableCollection<int>();
-            //for (int i = 1; i <= 98; i++)
-            //{
 
-            //    SeatsBot.Add(i+121);
-            //}
 
             for (int j = 1; j <= 7; j++)
             {
@@ -77,7 +67,42 @@ namespace VistasCineWPF.Views
                 }
             }
 
+            
+
             InitializeComponent();
+
+            this.DataContext = this;
+
+            Color col = Colors.Red;
+            RcColor = new SolidColorBrush(col);
+
+        }
+        private SolidColorBrush _rccolor;
+        public SolidColorBrush RcColor
+        {
+            get { return _rccolor; }
+            set
+            {
+                _rccolor = value;
+            }
+        }
+
+
+
+        private void EventTrigger_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("seleccionado");
+        }
+
+        private void EventTrigger_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
+
 }
