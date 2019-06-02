@@ -12,10 +12,13 @@
         <ItemsControl ItemsSource="{Binding SeatsTop}" Background="White" Margin="-11,43,-24,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="751">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid >
+                    <Grid  >
                         <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
-                        <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
-                            Foreground="White" FontWeight="Bold" />
+                        <TextBlock  MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="22px" Height="22px" Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
+                            Foreground="White" FontWeight="Bold"  Background="Transparent" />
+
+                        <!--<TextBlock  MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="22px" Height="22px" Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
+                            Foreground="White" FontWeight="Bold" Background="Red"  />-->
 
                     </Grid>
                     <!--<DataTemplate.Triggers>
@@ -27,11 +30,7 @@
 
                     <DataTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Seat" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Seat" Property="Fill" Value="Red"/>
                         </Trigger>
                     </DataTemplate.Triggers>
 
@@ -50,25 +49,12 @@
                 <DataTemplate>
                     <Grid>
                         <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
-                        <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
+                        <TextBlock Text="{Binding}" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
                     </Grid>
                     <DataTemplate.Triggers>
-
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Seat" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-
-                        <Trigger Property="Button.IsPressed" Value="True">
-                            <Setter TargetName="Seat" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Seat" Property="Fill" Value="Red"/>
                         </Trigger>
                     </DataTemplate.Triggers>
 
@@ -85,7 +71,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Rectangle HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" MouseUp="Grid_MouseLeftButtonUp" Width="25px" Height="25px"
+                        <Rectangle HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  x:Name="Seat"  Width="25px" Height="25px"
                                      Stroke="Black" Fill="Green" Margin="2px">
                             <!--<Rectangle HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" MouseUp="Grid_MouseLeftButtonUp" Width="25px" Height="25px"
                                      Stroke="Black" Fill="{Binding RcColor}" Margin="2px">-->
@@ -93,16 +79,12 @@
                                 <MouseBinding Gesture="LeftClick" Command="{Binding RcColor}"/>
                             </Rectangle.InputBindings>
                         </Rectangle>
-                        <TextBlock Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
+                        <TextBlock Text="{Binding}" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  TextAlignment="Center" VerticalAlignment="Center" 
                             Foreground="White" FontWeight="Bold" />
                     </Grid>
                     <DataTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Seat" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Red" ShadowDepth="5"/>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Seat" Property="Fill" Value="Red"/>
                         </Trigger>
                     </DataTemplate.Triggers>
                 </DataTemplate>

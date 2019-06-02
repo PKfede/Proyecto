@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="AsientosMapa" Height="566.736" Width="800"
-        SizeToContent="WidthAndHeight">
+        SizeToContent="WidthAndHeight" Icon="LogoCine.jpg" ResizeMode="NoResize">
     
     
     <Grid>
