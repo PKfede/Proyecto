@@ -1,31 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
+using VistasCineWPF.Helpers;
 using VistasCineWPF.Views;
 using Brush = System.Drawing.Brush;
 
 namespace VistasCineWPF.ViewModel
 {
-    class AsientosMapaViewModel:NotifyViewModel
+    class AsientosMapaViewModel : NotifyViewModel
     {
-        private object view;
+        private enum Rows { N, M, L, K, J, I, H, G, F, E, D, C, B, A };
+        public ObservableCollection<Seat> SeatsTop { get; private set; }
+        public ObservableCollection<int> SeatsMid { get; private set; }
+        public ObservableCollection<int> SeatsBot { get; private set; }
+        public DelegateCommand SelectCommand;
         public AsientosMapaViewModel()
         {
-            View = new UserControl2();
-            
+            GenerateDiagram();
+            SelectCommand = new DelegateCommand(Select);
+
         }
 
-        public object View
+        #region Execute y canExecute
+        public void Select(object parameter)
         {
-            get { return view; }
-            set
+            MessageBox.Show("seleccionado");
+        }
+
+
+        #endregion
+
+        public void GenerateDiagram()
+        {
+            SeatsTop = new ObservableCollection<Seat>();
+            for (int i = 1; i <= 19; i++)
             {
-                view = value;
-                NotifyPropertyChanged("View");
+                SeatsTop.Add(new Seat("N", i));
+            }
+            SeatsMid = new ObservableCollection<int>();
+            for (int j = 1; j <= 6; j++)
+            {
+                if (j <= 7)
+                {
+                    for (int i = 1; i <= 17; i++)
+                    {
+                        SeatsMid.Add(i);
+                    }
+                }
+            }
+            SeatsBot = new ObservableCollection<int>();
+            for (int j = 1; j <= 7; j++)
+            {
+                if (j <= 7)
+                {
+                    for (int i = 1; i <= 14; i++)
+                    {
+                        SeatsBot.Add(i);
+                    }
+                }
             }
         }
 
@@ -51,13 +89,8 @@ namespace VistasCineWPF.ViewModel
             set
             {
                 _colorr = value;
-                NotifyPropertyChanged(() => Colorr);
+                NotifyPropertyChanged("Colorr");
             }
-        }
-
-        private void NotifyPropertyChanged(Func<Brush> p)
-        {
-            throw new NotImplementedException();
         }
     }
 }

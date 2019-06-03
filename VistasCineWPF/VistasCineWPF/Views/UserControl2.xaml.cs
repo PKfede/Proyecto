@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VistasCineWPF.Helpers;
+using VistasCineWPF.ViewModel;
+
 
 namespace VistasCineWPF.Views
 {
@@ -21,70 +24,13 @@ namespace VistasCineWPF.Views
     /// </summary>
     public partial class UserControl2 : UserControl
     {
-        public ObservableCollection<int> SeatsTop { get; private set; }
-        public ObservableCollection<int> SeatsMid { get; private set; }
-        public ObservableCollection<int> SeatsBot { get; private set; }
+ 
         
 
         public UserControl2()
         {
-            SeatsTop = new ObservableCollection<int>();
-            for (int i = 1; i <= 19; i++)
-            {
-           
-                    SeatsTop.Add(i);
-            }
-            SeatsMid = new ObservableCollection<int>();
-
-            for (int j = 1; j <= 6; j++)
-            {
-                if (j <= 7)
-                {
-                    for (int i = 1; i <= 17; i++)
-                    {
-
-                        SeatsMid.Add(i);
-
-                    }
-                    
-                }
-            }
-
-            SeatsBot = new ObservableCollection<int>();
-
-
-            for (int j = 1; j <= 7; j++)
-            {
-                if (j <= 7)
-                {
-                    for (int i = 1; i <= 14; i++)
-                    {
-
-                        SeatsBot.Add(i);
-
-                    }
-
-                }
-            }
-
-            
-
             InitializeComponent();
-
-            this.DataContext = this;
-
-            Color col = Colors.Red;
-            RcColor = new SolidColorBrush(col);
-
-        }
-        private SolidColorBrush _rccolor;
-        public SolidColorBrush RcColor
-        {
-            get { return _rccolor; }
-            set
-            {
-                _rccolor = value;
-            }
+            this.DataContext = new AsientosMapaViewModel();
         }
 
 

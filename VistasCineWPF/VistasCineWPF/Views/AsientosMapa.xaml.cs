@@ -23,8 +23,8 @@ namespace VistasCineWPF.Views
         public AsientosMapa()
         {
             InitializeComponent();
-            DataContext = new AsientosMapaViewModel();
-            
+            DataContext = new MainViewModel();
+
         }
 
     }

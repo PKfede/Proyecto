@@ -66,7 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\Seat.cs" />
     <Compile Include="ViewModel\AsientosMapaViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Views\AgregarPelicula.xaml.cs">
       <DependentUpon>AgregarPelicula.xaml</DependentUpon>
     </Compile>
