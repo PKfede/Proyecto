@@ -1,0 +1,15 @@
+﻿<Application x:Class="CineExpotronica2019.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CineExpotronica2019"
+             xmlns:vm="clr-namespace:CineExpotronica2019.ViewModel"
+             StartupUri="LoginView.xaml">
+    <Application.Resources>
+        <!--<DataTemplate DataType="{x:Type vm:SignInViewModel}">
+            <v:SignInView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+            <v:LoginView/>
+        </DataTemplate>-->
+    </Application.Resources>
+</Application>

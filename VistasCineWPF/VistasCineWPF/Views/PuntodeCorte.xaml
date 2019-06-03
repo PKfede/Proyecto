@@ -1,0 +1,20 @@
+﻿<Window x:Class="VistasCineWPF.Views.PuntodeCorte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VistasCineWPF"
+        mc:Ignorable="d"
+        Title="PuntodeCorte" Height="244.149" Width="458.511">
+    <Grid Margin="0,0,0,-2">
+        <Grid HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="452" Background="#FF5B7EDA" Margin="1,0,0,0">
+            <Label Content="Cine Universal" HorizontalAlignment="Left" Margin="45,-1,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="35" Width="126"/>
+        </Grid>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="148,56,0,0"/>
+        <Label Content="Funciones" HorizontalAlignment="Left" Margin="53,56,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button Content="Corte" HorizontalAlignment="Left" Margin="53,95,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <Label Content="General" HorizontalAlignment="Left" Margin="53,134,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+    </Grid>
+</Window>

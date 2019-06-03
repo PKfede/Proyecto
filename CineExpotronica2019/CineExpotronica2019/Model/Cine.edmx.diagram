@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a1015a01d6247e196c5e5ce4065f42a" Name="Diagram1">
+        <EntityTypeShape EntityType="cineModel.funcion" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="cineModel.pelicula" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cineModel.tarifa" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cineModel.usuario" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cineModel.ventas" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="cineModel.FK__funcion__fk_idPe__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="cineModel.FK__funcion__fk_prec__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="cineModel.fk_idFuncion" ManuallyRouted="false" />
+        <AssociationConnector Association="cineModel.FK__ventas__fk_idTaq__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

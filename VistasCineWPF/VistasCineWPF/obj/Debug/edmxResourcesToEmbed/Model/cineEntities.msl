@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cineModelStoreContainer" CdmEntityContainer="cineEntities">
+    <EntitySetMapping Name="funcion">
+      <EntityTypeMapping TypeName="cineModel.funcion">
+        <MappingFragment StoreEntitySet="funcion">
+          <ScalarProperty Name="idFuncion" ColumnName="idFuncion" />
+          <ScalarProperty Name="fechaFuncion" ColumnName="fechaFuncion" />
+          <ScalarProperty Name="horaFuncion" ColumnName="horaFuncion" />
+          <ScalarProperty Name="asientosDisponibles" ColumnName="asientosDisponibles" />
+          <ScalarProperty Name="asientosOcupados" ColumnName="asientosOcupados" />
+          <ScalarProperty Name="asientoAsignado" ColumnName="asientoAsignado" />
+          <ScalarProperty Name="diagrama" ColumnName="diagrama" />
+          <ScalarProperty Name="fk_precio" ColumnName="fk_precio" />
+          <ScalarProperty Name="fk_idPelicula" ColumnName="fk_idPelicula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pelicula">
+      <EntityTypeMapping TypeName="cineModel.pelicula">
+        <MappingFragment StoreEntitySet="pelicula">
+          <ScalarProperty Name="idPelicula" ColumnName="idPelicula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tarifa">
+      <EntityTypeMapping TypeName="cineModel.tarifa">
+        <MappingFragment StoreEntitySet="tarifa">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="cineModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="idTaquillero" ColumnName="idTaquillero" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apPaterno" ColumnName="apPaterno" />
+          <ScalarProperty Name="apMaterno" ColumnName="apMaterno" />
+          <ScalarProperty Name="telTaquillero" ColumnName="telTaquillero" />
+          <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ventas">
+      <EntityTypeMapping TypeName="cineModel.ventas">
+        <MappingFragment StoreEntitySet="ventas">
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="fk_idTaquillero" ColumnName="fk_idTaquillero" />
+          <ScalarProperty Name="idFuncion" ColumnName="idFuncion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -35,8 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -51,92 +62,143 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Views\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AgregarPelicula.xaml.cs">
+    <Compile Include="Helpers\Seat.cs" />
+    <Compile Include="ViewModel\AsientosMapaViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="Views\AgregarPelicula.xaml.cs">
       <DependentUpon>AgregarPelicula.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CrearFuncion.xaml.cs">
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="Model\cineEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cineEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\cineEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\cineEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cineEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AsientosMapa.xaml.cs">
+      <DependentUpon>AsientosMapa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrearFuncion.xaml.cs">
       <DependentUpon>CrearFuncion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FuncionExistente.xaml.cs">
+    <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Model\funcion.cs">
+      <DependentUpon>cineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FuncionExistente.xaml.cs">
       <DependentUpon>FuncionExistente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Historial.xaml.cs">
+    <Compile Include="Views\Historial.xaml.cs">
       <DependentUpon>Historial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PuntodeCorte.xaml.cs">
+    <Compile Include="ViewModel\NotifyViewModel.cs" />
+    <Compile Include="Model\pelicula.cs">
+      <DependentUpon>cineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PuntodeCorte.xaml.cs">
       <DependentUpon>PuntodeCorte.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentaFinal.xaml.cs">
+    <Compile Include="ViewModel\RegistroViewModel.cs" />
+    <Compile Include="Model\tarifa.cs">
+      <DependentUpon>cineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\usuario.cs">
+      <DependentUpon>cineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControl2.xaml.cs">
+      <DependentUpon>UserControl2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VentaFinal.xaml.cs">
       <DependentUpon>VentaFinal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
+    <Compile Include="Model\ventas.cs">
+      <DependentUpon>cineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Page Include="AgregarPelicula.xaml">
+    <Page Include="Views\AgregarPelicula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CrearFuncion.xaml">
+    <Page Include="Views\AsientosMapa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FuncionExistente.xaml">
+    <Page Include="Views\CrearFuncion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Historial.xaml">
+    <Page Include="Views\FuncionExistente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PuntodeCorte.xaml">
+    <Page Include="Views\Historial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegistroUsuario.xaml">
+    <Page Include="Views\PuntodeCorte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CantidadBoletosView.xaml">
+    <Page Include="Views\RegistroUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Mainwindow.xaml">
+    <Page Include="Views\CantidadBoletosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Mainwindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistroUsuario.xaml.cs">
+    <Compile Include="Views\RegistroUsuario.xaml.cs">
       <DependentUpon>RegistroUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CantidadBoletosView.xaml.cs">
+    <Compile Include="Views\CantidadBoletosView.xaml.cs">
       <DependentUpon>CantidadBoletosView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Mainwindow.xaml.cs">
+    <Compile Include="Views\Mainwindow.xaml.cs">
       <DependentUpon>Mainwindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuPrincipal.xaml">
+    <Page Include="Views\MenuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VentaFinal.xaml">
+    <Page Include="Views\UserControl2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="Views\VentaFinal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuPrincipal.xaml.cs">
+    <Compile Include="Views\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -156,19 +218,50 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\cineEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>cineEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\cineEntities.edmx.diagram">
+      <DependentUpon>cineEntities.edmx</DependentUpon>
+    </None>
+    <None Include="Views\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Views\App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="vistas\" />
+    <Folder Include="BaseViewModel\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="LogoCine.jpg" />
+    <Resource Include="Views\LogoCine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\seat-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Asientos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\cineEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>cineEntities.Context.cs</LastGenOutput>
+      <DependentUpon>cineEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\cineEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>cineEntities.edmx</DependentUpon>
+      <LastGenOutput>cineEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
