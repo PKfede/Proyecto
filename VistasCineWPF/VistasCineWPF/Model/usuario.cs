@@ -26,6 +26,7 @@ namespace VistasCineWPF.Model
         public string apMaterno { get; set; }
         public string telTaquillero { get; set; }
         public string tipoUsuario { get; set; }
+        public string contraseña { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ventas> ventas { get; set; }

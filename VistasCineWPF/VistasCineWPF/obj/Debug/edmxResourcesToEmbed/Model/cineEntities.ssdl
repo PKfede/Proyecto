@@ -41,6 +41,7 @@
     <Property Name="apMaterno" Type="varchar" MaxLength="50" />
     <Property Name="telTaquillero" Type="varchar" MaxLength="11" />
     <Property Name="tipoUsuario" Type="varchar" MaxLength="20" />
+    <Property Name="contraseña" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="ventas">
     <Key>

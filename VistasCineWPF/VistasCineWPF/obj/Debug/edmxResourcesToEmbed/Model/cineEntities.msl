@@ -43,6 +43,7 @@
           <ScalarProperty Name="apMaterno" ColumnName="apMaterno" />
           <ScalarProperty Name="telTaquillero" ColumnName="telTaquillero" />
           <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

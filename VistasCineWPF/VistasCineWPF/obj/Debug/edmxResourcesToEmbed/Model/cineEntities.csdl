@@ -46,6 +46,7 @@
     <Property Name="apMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="telTaquillero" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="tipoUsuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ventas" Relationship="Self.FK__ventas__fk_idTaq__2D27B809" FromRole="usuario" ToRole="ventas" />
   </EntityType>
   <EntityType Name="ventas">
