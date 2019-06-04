@@ -24,7 +24,6 @@ namespace VistasCineWPF.Views
         {
             InitializeComponent();
             DataContext = new MainViewModel();
-
         }
 
     }

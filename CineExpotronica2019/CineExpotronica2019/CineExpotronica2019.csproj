@@ -64,7 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\Seat.cs" />
     <Compile Include="ViewModel\ApplicationViewModel.cs" />
+    <Compile Include="ViewModel\AsientosMapaViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\NotifyViewModel.cs" />
@@ -74,6 +76,15 @@
     </Compile>
     <Compile Include="SignInView.xaml.cs">
       <DependentUpon>SignInView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddMovieControl.xaml.cs">
+      <DependentUpon>AddMovieControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CrearFuncionControl.xaml.cs">
+      <DependentUpon>CrearFuncionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VentaBoletosControl.xaml.cs">
+      <DependentUpon>VentaBoletosControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +104,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddMovieControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CrearFuncionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VentaBoletosControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,8 +142,6 @@
     <Compile Include="Model\pelicula.cs">
       <DependentUpon>Cine.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Seat.cs" />
-    <Compile Include="Model\SeatingDiagram.cs" />
     <Compile Include="Model\tarifa.cs">
       <DependentUpon>Cine.tt</DependentUpon>
     </Compile>

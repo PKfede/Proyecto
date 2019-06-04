@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,13 @@ namespace CineExpotronica2019
         public MainMenu()
         {
             InitializeComponent();
-            DataContext = new ApplicationViewModel();
+            ViewModel = new ApplicationViewModel();
+        }
+        public ApplicationViewModel ViewModel
+        {
+            set { this.DataContext = value; }
+            get { return this.DataContext as ApplicationViewModel; }
         }
     }
+    
 }

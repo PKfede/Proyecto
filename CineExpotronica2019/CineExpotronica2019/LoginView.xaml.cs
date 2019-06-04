@@ -23,7 +23,13 @@ namespace CineExpotronica2019
         public LoginView()
         {
             InitializeComponent();
-            DataContext = new LoginViewModel();
+            ViewModel = new LoginViewModel();
+        }
+        
+        public LoginViewModel ViewModel
+        {
+            set { this.DataContext = value; }
+            get { return this.DataContext as LoginViewModel; }
         }
     }
 }

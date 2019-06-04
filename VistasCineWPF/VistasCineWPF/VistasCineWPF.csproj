@@ -67,27 +67,42 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\Seat.cs" />
+    <Compile Include="Model\CineEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CineEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CineEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CineEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CineEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\funcion.cs">
+      <DependentUpon>CineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\pelicula.cs">
+      <DependentUpon>CineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tarifa.cs">
+      <DependentUpon>CineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\usuario.cs">
+      <DependentUpon>CineEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ventas.cs">
+      <DependentUpon>CineEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AsientosMapaViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Views\AgregarPelicula.xaml.cs">
       <DependentUpon>AgregarPelicula.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="Model\cineEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cineEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\cineEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cineEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\cineEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cineEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Views\AsientosMapa.xaml.cs">
       <DependentUpon>AsientosMapa.xaml</DependentUpon>
     </Compile>
@@ -95,9 +110,6 @@
       <DependentUpon>CrearFuncion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DelegateCommand.cs" />
-    <Compile Include="Model\funcion.cs">
-      <DependentUpon>cineEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Views\FuncionExistente.xaml.cs">
       <DependentUpon>FuncionExistente.xaml</DependentUpon>
     </Compile>
@@ -105,27 +117,15 @@
       <DependentUpon>Historial.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\NotifyViewModel.cs" />
-    <Compile Include="Model\pelicula.cs">
-      <DependentUpon>cineEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Views\PuntodeCorte.xaml.cs">
       <DependentUpon>PuntodeCorte.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\RegistroViewModel.cs" />
-    <Compile Include="Model\tarifa.cs">
-      <DependentUpon>cineEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\usuario.cs">
-      <DependentUpon>cineEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserControl2.xaml.cs">
       <DependentUpon>UserControl2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VentaFinal.xaml.cs">
       <DependentUpon>VentaFinal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ventas.cs">
-      <DependentUpon>cineEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -218,13 +218,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\cineEntities.edmx">
+    <EntityDeploy Include="Model\CineEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>cineEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>CineEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\cineEntities.edmx.diagram">
-      <DependentUpon>cineEntities.edmx</DependentUpon>
+    <None Include="App.Config" />
+    <None Include="Model\CineEntities.edmx.diagram">
+      <DependentUpon>CineEntities.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Views\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -249,19 +251,19 @@
     <Resource Include="Views\Asientos.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\cineEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>cineEntities.Context.cs</LastGenOutput>
-      <DependentUpon>cineEntities.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\cineEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>cineEntities.edmx</DependentUpon>
-      <LastGenOutput>cineEntities.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model\CineEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CineEntities.Context.cs</LastGenOutput>
+      <DependentUpon>CineEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\CineEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CineEntities.edmx</DependentUpon>
+      <LastGenOutput>CineEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

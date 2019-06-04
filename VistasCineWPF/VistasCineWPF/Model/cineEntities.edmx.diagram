@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5019afea4d404eb48b37bfb6bb1436e9" Name="Diagram1">
+      <Diagram DiagramId="fcac3f60ee594edeb04cb2d37dff07d9" Name="Diagram1">
         <EntityTypeShape EntityType="cineModel.funcion" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="cineModel.pelicula" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="cineModel.tarifa" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="cineModel.usuario" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cineModel.usuario" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="cineModel.ventas" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="cineModel.FK__funcion__fk_idPe__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="cineModel.FK__funcion__fk_prec__29572725" ManuallyRouted="false" />
