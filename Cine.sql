@@ -1,12 +1,12 @@
 CREATE DATABASE cine;
-
+GO
 USE cine;
-
+GO
 CREATE TABLE usuario(idTaquillero INT IDENTITY PRIMARY KEY NOT NULL, nombre VARCHAR(50), 
-apPaterno VARCHAR(50), apMaterno VARCHAR(50), telTaquillero VARCHAR (11), tipoUsuario VARCHAR(20),contraseña VARCHAR(20));
+apPaterno VARCHAR(50), apMaterno VARCHAR(50), telTaquillero VARCHAR (11), nombre_usuario varchar(50),tipoUsuario VARCHAR(20), contra VARCHAR(20));
 
 
-CREATE TABLE pelicula(idPelicula INT PRIMARY KEY NOT NULL,nombre VARCHAR(50));
+CREATE TABLE pelicula(idPelicula INT IDENTITY PRIMARY KEY NOT NULL,nombre VARCHAR(50));
 
 CREATE TABLE funcion(idFuncion VARCHAR(50), fechaFuncion VARCHAR(50), horaFuncion VARCHAR(50),
 asientosDisponibles INT, asientosOcupados INT, asientoAsignado VARCHAR(3), diagrama VARCHAR(220),
