@@ -12,12 +12,9 @@ using System.Windows;
 
 namespace CineExpotronica2019.ViewModel
 {
-    class SignInViewModel : BaseViewModel<usuario>, IDataErrorInfo
+    public class SignInViewModel : BaseViewModel<usuario>, IDataErrorInfo
     {
-        public DelegateCommand AddCommand { get; private set; }
-        public DelegateCommand BackToLoginCommand { get; private set; }
         public ObservableCollection<string> ItemsComboBox { get; private set; }
-
         #region Properties
         public string Nombre_usuario
         {
@@ -71,7 +68,6 @@ namespace CineExpotronica2019.ViewModel
         
 
         #endregion
-
         public SignInViewModel()
         {
             ItemsComboBox = new ObservableCollection<string>()
@@ -84,6 +80,11 @@ namespace CineExpotronica2019.ViewModel
             AddCommand = new DelegateCommand(Add, AddCanUse);
             BackToLoginCommand = new DelegateCommand(BackToLogin);
         }
+
+        #region Commands
+        public DelegateCommand BackToLoginCommand { get; private set; }
+        public DelegateCommand AddCommand { get; private set; }
+        #endregion
 
         #region Execute
         public void Add(object parameter)
@@ -103,9 +104,9 @@ namespace CineExpotronica2019.ViewModel
         #region canExecute
         public bool AddCanUse(object parameter)
         {
-            foreach(string property in ValidatesProperties)
+            foreach (string property in ValidatesProperties)
             {
-                if(GetValidationError(property) != null)
+                if (GetValidationError(property) != null)
                 { return false; }
             }
             return true;
@@ -120,7 +121,7 @@ namespace CineExpotronica2019.ViewModel
         public string this[string propertyName]
         {
             get
-            {   
+            {
                 return GetValidationError(propertyName);
             }
         }
@@ -129,16 +130,16 @@ namespace CineExpotronica2019.ViewModel
         #region Validation
         static readonly string[] ValidatesProperties =
         {
+            "Nombre",
             "Nombre_usuario",
             "TelTaquillero",
-            "Nombre",
             "ApPaterno",
             "ApMaterno",
             "Contra"
         };
-        string GetValidationError(string propertyName)
+        public string GetValidationError(string propertyName)
         {
-            string errorMsg = String.Empty;
+            string errorMsg = null;
             
 
             if (propertyName.Equals("Nombre_usuario"))

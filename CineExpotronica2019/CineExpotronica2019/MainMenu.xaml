@@ -5,7 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CineExpotronica2019"
         mc:Ignorable="d"
-        Title="Menu principal" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Menu principal" Height="650" Width="1200" WindowStartupLocation="CenterScreen">
+
     <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Background="Gray" Grid.RowSpan="5">
+                <StackPanel>
+                    <Image Source="LogoCine.jpg" Margin="0,0,0,10"/>
+                    <Button Content="Crear funciones" FontSize="20" Command="{Binding SetCrearFuncionPage}" Height="50" Margin="0,0,0,10"></Button>
+                    <Button Content="Venta de boletos" FontSize="20" Command="{Binding SetVentaBoletosPage}" Height="50" Margin="0,0,0,10"></Button>
+                    <Button Content="Peliculas" FontSize="20" Command="{Binding SetMoviePage}" Height="50" Margin="0,0,0,10"></Button>
+                    <Button Content="Punto de corte" FontSize="20" Command="{Binding SetPuntoCortePage}" Height="50" Margin="0,0,0,10"></Button>
+                </StackPanel>
+                
+            </StackPanel>
+            <ContentControl Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding CurrentPage}"></ContentControl>
+        </Grid>
     </Grid>
 </Window>

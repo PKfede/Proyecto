@@ -1,50 +1,49 @@
-﻿using System;
+﻿using CineExpotronica2019.Helper;
+using CineExpotronica2019.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace CineExpotronica2019.ViewModel
 {
-    class ApplicationViewModel:NotifyViewModel
+    public class ApplicationViewModel:NotifyViewModel
     {
-        public SignInViewModel SignInVM;
-        public LoginViewModel LoginVM;
-
-        //private SignInView signInV;
-        //private LoginView loginV;
+        private CrearFuncionControl CrearFuncionPage;
+        private AddMovieControl MoviePage;
+        public VentaBoletosControl VentaBoletosPage;
         private object currentView;
-        private int currentHeight = 350;
-        private int currentWidth = 650;
-       
 
         public ApplicationViewModel()
         {
-            SignInVM = new SignInViewModel();
-            LoginVM = new LoginViewModel(); 
+            MoviePage = new AddMovieControl();
+            CrearFuncionPage = new CrearFuncionControl();
+            VentaBoletosPage = new VentaBoletosControl();
+            SetMoviePage = new DelegateCommand((o) => { control = MoviePage; NotifyPropertyChanged("CurrentPage");});
+            SetCrearFuncionPage = new DelegateCommand((o) => { control = CrearFuncionPage; NotifyPropertyChanged("CurrentPage");});
+            SetVentaBoletosPage= new DelegateCommand((o) => { control = VentaBoletosPage; NotifyPropertyChanged("CurrentPage");});
         }
-        public int CurrentHeight
+        public ICommand SetMoviePage
         {
-            get { return currentHeight; }
-            private set
-            {
-                currentHeight = value;
-                NotifyPropertyChanged("CurrentHeight");
-            }
+            get;
         }
-        public static void setLoginView()
+        public ICommand SetCrearFuncionPage
         {
-            
+            get;
         }
-        public int CurrentWidth
+        public ICommand SetVentaBoletosPage
         {
-            get { return currentWidth; }
-            private set
-            {
-                currentWidth = value;
-                NotifyPropertyChanged("CurrentWidth");
-            }
+            get;
         }
+        private UserControl control;
+        public UserControl CurrentPage
+        {
+            get { return control; }
+        }
+
 
         public object CurrentView
         {

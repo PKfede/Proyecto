@@ -23,3 +23,9 @@ C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\SignInVi
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\LoginView.baml
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\SignInView.baml
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\CineExpotronica2019.csprojAssemblyReference.cache
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\AddMovieControl.g.cs
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\AddMovieControl.baml
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\CrearFuncionControl.g.cs
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\CrearFuncionControl.baml
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\VentaBoletosControl.g.cs
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\VentaBoletosControl.baml

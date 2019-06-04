@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CineExpotronica2019.ViewModel
 {
     public class BaseViewModel<T> : NotifyViewModel where T : class
     {
-        protected cineEntities db = new cineEntities();
-        protected DbSet<T> _dbSet;
+        public cineEntities db = new cineEntities();
+        public DbSet<T> _dbSet;
         protected T _WorkingItem;
 
         public T WorkingItem { get { return _WorkingItem; } set { _WorkingItem = value; NotifyPropertyChanged("WorkingItem"); } }

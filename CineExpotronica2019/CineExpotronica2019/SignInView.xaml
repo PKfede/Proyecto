@@ -31,21 +31,20 @@
 
             <StackPanel Grid.Column="1" Margin="20,0,0,0">
                 <Label Content="Nombre" HorizontalAlignment="left" Foreground="#FF5D5A5A" />
-                <TextBox x:Name="txtNombreRegistro" HorizontalAlignment="left" Text="{Binding Nombre, Mode=OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=LostFocus}" Margin="0,0,0,3" Height="23" Width="120"/>
+                <TextBox x:Name="txtNombreRegistro" HorizontalAlignment="left" Text="{Binding Nombre, Mode=OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,3" Height="23" Width="120"/>
                 <Label Content="Apellido paterno" HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
-                <TextBox x:Name="txtApellidoPa" Text="{Binding ApPaterno, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=LostFocus}" HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
+                <TextBox x:Name="txtApellidoPa" Text="{Binding ApPaterno, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
                 <Label Content="Apellido materno" HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
-                <TextBox x:Name="txtApellidoMa" Text="{Binding ApMaterno, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=LostFocus}"  HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
+                <TextBox x:Name="txtApellidoMa" Text="{Binding ApMaterno, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="left" Margin="0,3,0,3" Height="23" Width="120"/>
                 <Label Content="Nombre de usuario"  HorizontalAlignment="Left" Foreground="#FF5D5A5A"/>
                 <TextBox Name="txtNombreUsuario" HorizontalAlignment="left" Text =
-                         "{Binding Nombre_usuario, Mode=OneWayToSource,ValidatesOnDataErrors=True, UpdateSourceTrigger=LostFocus}" Margin="0,3,0,3" Height="23" Width="120"/>
+                         "{Binding Nombre_usuario, Mode=OneWayToSource,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,3,0,3" Height="23" Width="120"/>
             </StackPanel>
             <StackPanel Grid.Column="2">
                 <Label Content="Contraseña" HorizontalAlignment="left" Foreground="#FF5D5A5A"/>
-                <TextBox HorizontalAlignment="left" Text="{Binding Contra, Mode=OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=LostFocus}" Margin="0,0,0,3" Height="23" Width="120"/>
+                <TextBox HorizontalAlignment="left" Text="{Binding Contra, Mode=OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,3" Height="23" Width="120"/>
                 <Label Content="Teléfono" HorizontalAlignment="Left" Foreground="#FF5D5A5A" />
-                <TextBox  HorizontalAlignment="left" Text="{Binding TelTaquillero, Mode=OneWayToSource,ValidatesOnDataErrors=True, ValidatesOnExceptions=True, 
-    NotifyOnValidationError=True}" Margin="0,3,0,3" Height="23" Width="120"/>
+                <TextBox  HorizontalAlignment="left" Text="{Binding TelTaquillero, Mode=OneWayToSource,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,3,0,3" Height="23" Width="120"/>
                 <Label Content="Tipo de usuario" Foreground="#FF5D5A5A"/>
                 <ComboBox ItemsSource="{Binding ItemsComboBox}" SelectedItem="{Binding WorkingItem.tipoUsuario, Mode=OneWayToSource}" SelectedIndex ="0" Width="120" HorizontalAlignment="Left"/>
             </StackPanel>

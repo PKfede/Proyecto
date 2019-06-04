@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\App.xaml
-31202373967
+61980845573
 2-1737521737
-23361528124
+26-766327256
 1864795970
-MainMenu.xaml;LoginView.xaml;SignInView.xaml;
+MainMenu.xaml;LoginView.xaml;SignInView.xaml;View\AddMovieControl.xaml;View\CrearFuncionControl.xaml;View\VentaBoletosControl.xaml;
 
 False
 
