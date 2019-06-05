@@ -65,9 +65,38 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helper\Seat.cs" />
+    <Compile Include="Model\Cine.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cine.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cine.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cine.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\funcion.cs">
+      <DependentUpon>Cine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\pelicula.cs">
+      <DependentUpon>Cine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\usuario.cs">
+      <DependentUpon>Cine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ventas.cs">
+      <DependentUpon>Cine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddPeliculaViewModel.cs" />
     <Compile Include="ViewModel\ApplicationViewModel.cs" />
     <Compile Include="ViewModel\AsientosMapaViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\FuncionViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\NotifyViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />
@@ -121,36 +150,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Cine.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cine.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Cine.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Cine.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cine.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\funcion.cs">
-      <DependentUpon>Cine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\pelicula.cs">
-      <DependentUpon>Cine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tarifa.cs">
-      <DependentUpon>Cine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\usuario.cs">
-      <DependentUpon>Cine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ventas.cs">
-      <DependentUpon>Cine.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -186,21 +185,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LogoCine.jpg" />
+    <Resource Include="View\LogoCine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Cine.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Cine.Context.cs</LastGenOutput>
       <DependentUpon>Cine.edmx</DependentUpon>
+      <LastGenOutput>Cine.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Cine.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Cine.edmx</DependentUpon>
       <LastGenOutput>Cine.cs</LastGenOutput>
     </Content>
-    <Resource Include="View\LogoCine.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

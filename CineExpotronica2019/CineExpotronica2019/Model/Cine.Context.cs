@@ -12,6 +12,8 @@ namespace CineExpotronica2019.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class cineEntities : DbContext
     {
@@ -27,8 +29,16 @@ namespace CineExpotronica2019.Model
     
         public virtual DbSet<funcion> funcion { get; set; }
         public virtual DbSet<pelicula> pelicula { get; set; }
-        public virtual DbSet<tarifa> tarifa { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<ventas> ventas { get; set; }
+    
+        public virtual int compraBoletos(string idFuncion)
+        {
+            var idFuncionParameter = idFuncion != null ?
+                new ObjectParameter("idFuncion", idFuncion) :
+                new ObjectParameter("idFuncion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("compraBoletos", idFuncionParameter);
+        }
     }
 }

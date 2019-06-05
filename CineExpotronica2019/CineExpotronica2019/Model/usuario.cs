@@ -24,10 +24,10 @@ namespace CineExpotronica2019.Model
         public string nombre { get; set; }
         public string apPaterno { get; set; }
         public string apMaterno { get; set; }
-        public string nombre_usuario { get; set; }
-        public string contra { get; set; }
         public string telTaquillero { get; set; }
+        public string nombre_usuario { get; set; }
         public string tipoUsuario { get; set; }
+        public string contra { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ventas> ventas { get; set; }

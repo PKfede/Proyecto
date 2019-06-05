@@ -22,6 +22,16 @@ namespace CineExpotronica2019.ViewModel
             _dbSet.Add(WorkingItem);
             return _dbSet;
         }
+        public DbSet<T> Remove()
+        {
+            _dbSet.Remove(WorkingItem);
+            return _dbSet;
+        }
+        public DbSet<T> Remove(T item)
+        {
+            _dbSet.Remove(item);
+            return _dbSet;
+        }
         public virtual IEnumerable<T> Get()
         {
             return _dbSet.ToList();

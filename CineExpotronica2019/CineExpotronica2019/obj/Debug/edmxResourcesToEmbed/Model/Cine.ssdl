@@ -3,7 +3,7 @@
   <EntityType Name="funcion">
     <Key>
       <PropertyRef Name="idFuncion" />
-      <PropertyRef Name="fk_precio" />
+      <PropertyRef Name="precio" />
     </Key>
     <Property Name="idFuncion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaFuncion" Type="varchar" MaxLength="50" />
@@ -12,24 +12,15 @@
     <Property Name="asientosOcupados" Type="int" />
     <Property Name="asientoAsignado" Type="varchar" MaxLength="3" />
     <Property Name="diagrama" Type="varchar" MaxLength="220" />
-    <Property Name="fk_precio" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="precio" Type="int" Nullable="false" />
     <Property Name="fk_idPelicula" Type="int" />
   </EntityType>
   <EntityType Name="pelicula">
     <Key>
       <PropertyRef Name="idPelicula" />
     </Key>
-    <Property Name="idPelicula" Type="int" Nullable="false" />
+    <Property Name="idPelicula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="tarifa">
-    <Key>
-      <PropertyRef Name="precio" />
-    </Key>
-    <Property Name="fecha" Type="varchar" MaxLength="50" />
-    <Property Name="hora" Type="varchar" MaxLength="50" />
-    <Property Name="precio" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="descuento" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
@@ -39,10 +30,10 @@
     <Property Name="nombre" Type="varchar" MaxLength="50" />
     <Property Name="apPaterno" Type="varchar" MaxLength="50" />
     <Property Name="apMaterno" Type="varchar" MaxLength="50" />
-    <Property Name="nombre_usuario" Type="varchar" MaxLength="50" />
-    <Property Name="contra" Type="varchar" MaxLength="50" />
     <Property Name="telTaquillero" Type="varchar" MaxLength="11" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="50" />
     <Property Name="tipoUsuario" Type="varchar" MaxLength="20" />
+    <Property Name="contra" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="ventas">
     <Key>
@@ -54,9 +45,9 @@
     <Property Name="importe" Type="numeric" Precision="18" Scale="0" />
     <Property Name="fk_idTaquillero" Type="int" />
     <Property Name="idFuncion" Type="varchar" MaxLength="50" />
-    <Property Name="precio" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="precio" Type="int" />
   </EntityType>
-  <Association Name="FK__funcion__fk_idPe__3E52440B">
+  <Association Name="FK__funcion__fk_idPe__3B75D760">
     <End Role="pelicula" Type="Self.pelicula" Multiplicity="0..1" />
     <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -68,19 +59,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__funcion__fk_prec__3D5E1FD2">
-    <End Role="tarifa" Type="Self.tarifa" Multiplicity="1" />
-    <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tarifa">
-        <PropertyRef Name="precio" />
-      </Principal>
-      <Dependent Role="funcion">
-        <PropertyRef Name="fk_precio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ventas__fk_idTaq__412EB0B6">
+  <Association Name="FK__ventas__fk_idTaq__3E52440B">
     <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
     <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -98,7 +77,7 @@
     <ReferentialConstraint>
       <Principal Role="funcion">
         <PropertyRef Name="idFuncion" />
-        <PropertyRef Name="fk_precio" />
+        <PropertyRef Name="precio" />
       </Principal>
       <Dependent Role="ventas">
         <PropertyRef Name="idFuncion" />
@@ -106,21 +85,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="compraBoletos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idFuncion" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="cineModelStoreContainer">
     <EntitySet Name="funcion" EntityType="Self.funcion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="pelicula" EntityType="Self.pelicula" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tarifa" EntityType="Self.tarifa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__funcion__fk_idPe__3E52440B" Association="Self.FK__funcion__fk_idPe__3E52440B">
+    <AssociationSet Name="FK__funcion__fk_idPe__3B75D760" Association="Self.FK__funcion__fk_idPe__3B75D760">
       <End Role="pelicula" EntitySet="pelicula" />
       <End Role="funcion" EntitySet="funcion" />
     </AssociationSet>
-    <AssociationSet Name="FK__funcion__fk_prec__3D5E1FD2" Association="Self.FK__funcion__fk_prec__3D5E1FD2">
-      <End Role="tarifa" EntitySet="tarifa" />
-      <End Role="funcion" EntitySet="funcion" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ventas__fk_idTaq__412EB0B6" Association="Self.FK__ventas__fk_idTaq__412EB0B6">
+    <AssociationSet Name="FK__ventas__fk_idTaq__3E52440B" Association="Self.FK__ventas__fk_idTaq__3E52440B">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="ventas" EntitySet="ventas" />
     </AssociationSet>

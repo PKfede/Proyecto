@@ -27,11 +27,10 @@ namespace CineExpotronica2019.Model
         public Nullable<int> asientosOcupados { get; set; }
         public string asientoAsignado { get; set; }
         public string diagrama { get; set; }
-        public decimal fk_precio { get; set; }
+        public int precio { get; set; }
         public Nullable<int> fk_idPelicula { get; set; }
     
         public virtual pelicula pelicula { get; set; }
-        public virtual tarifa tarifa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ventas> ventas { get; set; }
     }

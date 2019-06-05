@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CineExpotronica2019.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace CineExpotronica2019.View
         public AddMovieControl()
         {
             InitializeComponent();
+            ViewModel = new AddPeliculaViewModel();
         } 
+        public AddPeliculaViewModel ViewModel
+        {
+            get { return DataContext as AddPeliculaViewModel; }
+            set
+            {
+                DataContext = value;
+            }
+        }
     }
 }
