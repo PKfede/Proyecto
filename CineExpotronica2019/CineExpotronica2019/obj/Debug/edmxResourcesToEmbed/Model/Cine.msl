@@ -11,7 +11,7 @@
           <ScalarProperty Name="asientosOcupados" ColumnName="asientosOcupados" />
           <ScalarProperty Name="asientoAsignado" ColumnName="asientoAsignado" />
           <ScalarProperty Name="diagrama" ColumnName="diagrama" />
-          <ScalarProperty Name="fk_precio" ColumnName="fk_precio" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="fk_idPelicula" ColumnName="fk_idPelicula" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -24,16 +24,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tarifa">
-      <EntityTypeMapping TypeName="cineModel.tarifa">
-        <MappingFragment StoreEntitySet="tarifa">
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="hora" ColumnName="hora" />
-          <ScalarProperty Name="precio" ColumnName="precio" />
-          <ScalarProperty Name="descuento" ColumnName="descuento" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="usuario">
       <EntityTypeMapping TypeName="cineModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
@@ -41,10 +31,10 @@
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="apPaterno" ColumnName="apPaterno" />
           <ScalarProperty Name="apMaterno" ColumnName="apMaterno" />
-          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
-          <ScalarProperty Name="contra" ColumnName="contra" />
           <ScalarProperty Name="telTaquillero" ColumnName="telTaquillero" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
           <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="contra" ColumnName="contra" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -61,5 +51,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="compraBoletos" FunctionName="cineModel.Store.compraBoletos" />
   </EntityContainerMapping>
 </Mapping>

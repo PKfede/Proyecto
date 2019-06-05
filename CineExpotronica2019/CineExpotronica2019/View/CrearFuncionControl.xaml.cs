@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CineExpotronica2019.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace CineExpotronica2019.View
         public CrearFuncionControl()
         {
             InitializeComponent();
+            ViewModel = new FuncionViewModel();
+        }
+        public FuncionViewModel ViewModel
+        {
+            get { return DataContext as FuncionViewModel; }
+            set
+            {
+                DataContext = value;
+            }
         }
     }
 }

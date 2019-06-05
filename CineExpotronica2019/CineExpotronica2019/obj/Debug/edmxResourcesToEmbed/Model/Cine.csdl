@@ -3,7 +3,7 @@
   <EntityType Name="funcion">
     <Key>
       <PropertyRef Name="idFuncion" />
-      <PropertyRef Name="fk_precio" />
+      <PropertyRef Name="precio" />
     </Key>
     <Property Name="idFuncion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fechaFuncion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -12,29 +12,18 @@
     <Property Name="asientosOcupados" Type="Int32" />
     <Property Name="asientoAsignado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
     <Property Name="diagrama" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
-    <Property Name="fk_precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="precio" Type="Int32" Nullable="false" />
     <Property Name="fk_idPelicula" Type="Int32" />
-    <NavigationProperty Name="pelicula" Relationship="Self.FK__funcion__fk_idPe__3E52440B" FromRole="funcion" ToRole="pelicula" />
-    <NavigationProperty Name="tarifa" Relationship="Self.FK__funcion__fk_prec__3D5E1FD2" FromRole="funcion" ToRole="tarifa" />
+    <NavigationProperty Name="pelicula" Relationship="Self.FK__funcion__fk_idPe__3B75D760" FromRole="funcion" ToRole="pelicula" />
     <NavigationProperty Name="ventas" Relationship="Self.fk_idFuncion" FromRole="funcion" ToRole="ventas" />
   </EntityType>
   <EntityType Name="pelicula">
     <Key>
       <PropertyRef Name="idPelicula" />
     </Key>
-    <Property Name="idPelicula" Type="Int32" Nullable="false" />
+    <Property Name="idPelicula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="funcion" Relationship="Self.FK__funcion__fk_idPe__3E52440B" FromRole="pelicula" ToRole="funcion" />
-  </EntityType>
-  <EntityType Name="tarifa">
-    <Key>
-      <PropertyRef Name="precio" />
-    </Key>
-    <Property Name="fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="hora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="descuento" Type="Decimal" Precision="18" Scale="0" />
-    <NavigationProperty Name="funcion" Relationship="Self.FK__funcion__fk_prec__3D5E1FD2" FromRole="tarifa" ToRole="funcion" />
+    <NavigationProperty Name="funcion" Relationship="Self.FK__funcion__fk_idPe__3B75D760" FromRole="pelicula" ToRole="funcion" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
@@ -44,11 +33,11 @@
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="apPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="apMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="nombre_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="telTaquillero" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tipoUsuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ventas" Relationship="Self.FK__ventas__fk_idTaq__412EB0B6" FromRole="usuario" ToRole="ventas" />
+    <Property Name="contra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ventas" Relationship="Self.FK__ventas__fk_idTaq__3E52440B" FromRole="usuario" ToRole="ventas" />
   </EntityType>
   <EntityType Name="ventas">
     <Key>
@@ -60,11 +49,11 @@
     <Property Name="importe" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="fk_idTaquillero" Type="Int32" />
     <Property Name="idFuncion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="precio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="precio" Type="Int32" />
     <NavigationProperty Name="funcion" Relationship="Self.fk_idFuncion" FromRole="ventas" ToRole="funcion" />
-    <NavigationProperty Name="usuario" Relationship="Self.FK__ventas__fk_idTaq__412EB0B6" FromRole="ventas" ToRole="usuario" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK__ventas__fk_idTaq__3E52440B" FromRole="ventas" ToRole="usuario" />
   </EntityType>
-  <Association Name="FK__funcion__fk_idPe__3E52440B">
+  <Association Name="FK__funcion__fk_idPe__3B75D760">
     <End Role="pelicula" Type="Self.pelicula" Multiplicity="0..1" />
     <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -76,25 +65,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__funcion__fk_prec__3D5E1FD2">
-    <End Role="tarifa" Type="Self.tarifa" Multiplicity="1" />
-    <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tarifa">
-        <PropertyRef Name="precio" />
-      </Principal>
-      <Dependent Role="funcion">
-        <PropertyRef Name="fk_precio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_idFuncion">
     <End Role="funcion" Type="Self.funcion" Multiplicity="0..1" />
     <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="funcion">
         <PropertyRef Name="idFuncion" />
-        <PropertyRef Name="fk_precio" />
+        <PropertyRef Name="precio" />
       </Principal>
       <Dependent Role="ventas">
         <PropertyRef Name="idFuncion" />
@@ -102,7 +79,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ventas__fk_idTaq__412EB0B6">
+  <Association Name="FK__ventas__fk_idTaq__3E52440B">
     <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
     <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -117,24 +94,22 @@
   <EntityContainer Name="cineEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="funcion" EntityType="Self.funcion" />
     <EntitySet Name="pelicula" EntityType="Self.pelicula" />
-    <EntitySet Name="tarifa" EntityType="Self.tarifa" />
     <EntitySet Name="usuario" EntityType="Self.usuario" />
     <EntitySet Name="ventas" EntityType="Self.ventas" />
-    <AssociationSet Name="FK__funcion__fk_idPe__3E52440B" Association="Self.FK__funcion__fk_idPe__3E52440B">
+    <AssociationSet Name="FK__funcion__fk_idPe__3B75D760" Association="Self.FK__funcion__fk_idPe__3B75D760">
       <End Role="pelicula" EntitySet="pelicula" />
-      <End Role="funcion" EntitySet="funcion" />
-    </AssociationSet>
-    <AssociationSet Name="FK__funcion__fk_prec__3D5E1FD2" Association="Self.FK__funcion__fk_prec__3D5E1FD2">
-      <End Role="tarifa" EntitySet="tarifa" />
       <End Role="funcion" EntitySet="funcion" />
     </AssociationSet>
     <AssociationSet Name="fk_idFuncion" Association="Self.fk_idFuncion">
       <End Role="funcion" EntitySet="funcion" />
       <End Role="ventas" EntitySet="ventas" />
     </AssociationSet>
-    <AssociationSet Name="FK__ventas__fk_idTaq__412EB0B6" Association="Self.FK__ventas__fk_idTaq__412EB0B6">
+    <AssociationSet Name="FK__ventas__fk_idTaq__3E52440B" Association="Self.FK__ventas__fk_idTaq__3E52440B">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="ventas" EntitySet="ventas" />
     </AssociationSet>
+    <FunctionImport Name="compraBoletos">
+      <Parameter Name="idFuncion" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>
