@@ -14,8 +14,8 @@ precio INT, fk_idPelicula INT FOREIGN KEY REFERENCES pelicula(idPelicula),
 CONSTRAINT PK_FUNCION PRIMARY KEY(fk_idPelicula, fechaFuncion, horaFuncion));
 
 CREATE TABLE ventas(idVenta INT PRIMARY KEY IDENTITY, cantidad INT, hora VARCHAR(50), importe NUMERIC,
-fk_idTaquillero INT FOREIGN KEY REFERENCES usuario(idTaquillero), idFuncion VARCHAR(50), precio INT,
-CONSTRAINT fk_idFuncion FOREIGN KEY(idFuncion,precio) REFERENCES funcion(idFuncion,precio));
+fk_idTaquillero INT FOREIGN KEY REFERENCES usuario(idTaquillero), idFuncion VARCHAR(50), precio INT, idPelicula INT, fechaFuncion VARCHAR(50), horaFuncion VARCHAR(50),
+CONSTRAINT fk_Pelicula FOREIGN KEY(idPelicula, fechaFuncion, horaFuncion) REFERENCES funcion(fk_idPelicula,fechaFuncion, horaFuncion));
 
 GO
 
