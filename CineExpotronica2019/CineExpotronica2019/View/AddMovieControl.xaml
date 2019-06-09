@@ -59,10 +59,8 @@
             </TabItem>
             <TabItem Header="Peliculas" >
                 <StackPanel>
-                    <Label MaxHeight="400">
-                        <DataGrid ItemsSource="{Binding PeliculasList, Mode=OneWay}" SelectedItem="{Binding SelectedMovie, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGrid>
-                    </Label>
-                    <Button Content="Remover" Command="{Binding DeleteCommand}" Width="200"/>
+                    <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding PeliculasList, Mode=TwoWay}" SelectedItem="{Binding SelectedMovie, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGrid>
+                    <Button Content="Remover" Margin="20" Command="{Binding DeleteCommand}" Width="200"/>
                 </StackPanel>
             </TabItem>
         </TabControl>

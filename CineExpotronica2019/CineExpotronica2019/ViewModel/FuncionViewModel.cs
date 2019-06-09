@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CineExpotronica2019.ViewModel
 {
@@ -15,16 +16,11 @@ namespace CineExpotronica2019.ViewModel
     {
 
         public DelegateCommand AddCommand { get; private set; }
-        public ObservableCollection<string> ItemsComboBox { get; private set; }
+        public List<pelicula> ItemsComboBox { get; private set; }
         public ObservableCollection<decimal> ItemsComboBox2 { get; private set; }
-
         public FuncionViewModel()
-        {
-            ItemsComboBox = new ObservableCollection<string>()
-            {
-                "Godzilla",
-                "John Wick 3"
-            };
+        {   
+            ItemsComboBox = db.pelicula.ToList();
             ItemsComboBox2 = new ObservableCollection<decimal>()
             {
                 35,
@@ -36,14 +32,6 @@ namespace CineExpotronica2019.ViewModel
         }
 
         #region Properties
-        public string IdFuncion
-        {
-            get { return WorkingItem.idFuncion; }
-            set
-            {
-                WorkingItem.idFuncion = value;
-            }
-        }
         public string FechaFuncion
         {
             get { return WorkingItem.fechaFuncion; }
@@ -60,7 +48,7 @@ namespace CineExpotronica2019.ViewModel
                 WorkingItem.horaFuncion = value;
             }
         }
-        public pelicula x
+        public pelicula Pelicula
         {
             get { return WorkingItem.pelicula; }
             set
@@ -68,7 +56,6 @@ namespace CineExpotronica2019.ViewModel
                 WorkingItem.pelicula = value;
             }
         }
-
         #endregion
 
         #region Execute
@@ -76,6 +63,7 @@ namespace CineExpotronica2019.ViewModel
         {
             db.funcion = base.Add();
             db.SaveChanges();
+            MessageBox.Show("Función guardada");
         }
         
         #endregion
@@ -109,22 +97,15 @@ namespace CineExpotronica2019.ViewModel
         #region Validation
         static readonly string[] ValidatesProperties =
         {
-            "IdFuncion",
             "FechaFuncion",
-            "HoraFuncion"
+            "HoraFuncion",
+            "Pelicula"
         };
         string GetValidationError(string propertyName)
         {
             string errorMsg = null;
 
-
-            if (propertyName.Equals("IdFuncion"))
-            {
-                if (String.IsNullOrEmpty(IdFuncion))
-                    errorMsg = "Es un campo obligatorio";
-                
-            }
-            else if (propertyName.Equals("FechaFuncion"))
+            if (propertyName.Equals("FechaFuncion"))
             {
                 if (String.IsNullOrEmpty(FechaFuncion))
                 {
@@ -137,7 +118,11 @@ namespace CineExpotronica2019.ViewModel
                 if (String.IsNullOrEmpty(HoraFuncion))
                     errorMsg = "Es un campo obligatorio";
             }
-
+            else if(propertyName.Equals("Pelicula"))
+            {
+                if (String.IsNullOrEmpty(HoraFuncion))
+                    errorMsg = "Es un campo obligatorio";
+            }
             return errorMsg;
         }
         #endregion

@@ -12,18 +12,14 @@ namespace CineExpotronica2019.ViewModel
 {
     public class ApplicationViewModel:NotifyViewModel
     {
-        private CrearFuncionControl CrearFuncionPage;
-        private AddMovieControl MoviePage { get { return new AddMovieControl(); }  }
-        public VentaBoletosControl VentaBoletosPage;
+        private CrearFuncionControl CrearFuncionPage { get { return new CrearFuncionControl(); } }
+        private AddMovieControl MoviePage { get { return new AddMovieControl(); } }
+        public VentaBoletosControl VentaBoletosPage { get { return new VentaBoletosControl(); } }
         private object currentView;
 
         public ApplicationViewModel()
         {
-           
-            CrearFuncionPage = new CrearFuncionControl();
-            VentaBoletosPage = new VentaBoletosControl();
-            SetCrearFuncionPage = new DelegateCommand((o) => { control = CrearFuncionPage; NotifyPropertyChanged("CurrentPage");});
-            SetVentaBoletosPage= new DelegateCommand((o) => { control = VentaBoletosPage; NotifyPropertyChanged("CurrentPage");});
+
         }
         public ICommand SetMoviePage
         {
@@ -31,11 +27,11 @@ namespace CineExpotronica2019.ViewModel
         }
         public ICommand SetCrearFuncionPage
         {
-            get;
+            get { return new DelegateCommand((o) => { control = CrearFuncionPage; NotifyPropertyChanged("CurrentPage"); }); }
         }
         public ICommand SetVentaBoletosPage
         {
-            get;
+            get { return new DelegateCommand((o) => { control = VentaBoletosPage; NotifyPropertyChanged("CurrentPage"); }); }
         }
         private UserControl control;
         public UserControl CurrentPage

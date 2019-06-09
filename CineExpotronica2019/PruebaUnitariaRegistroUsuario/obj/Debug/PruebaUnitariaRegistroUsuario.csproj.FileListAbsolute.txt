@@ -19,3 +19,10 @@ C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\obj\Debu
 C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\obj\Debug\PruebaUnitariaRegistroUsuario.csproj.CopyComplete
 C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\obj\Debug\PruebaUnitariaRegistroUsuario.dll
 C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\obj\Debug\PruebaUnitariaRegistroUsuario.pdb
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\PruebaUnitariaRegistroUsuario.dll.config
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\EntityFramework.dll
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Kike\Desktop\CineExpotronica2019\PruebaUnitariaRegistroUsuario\bin\Debug\EntityFramework.SqlServerCompact.xml

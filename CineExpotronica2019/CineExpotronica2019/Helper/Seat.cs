@@ -19,6 +19,12 @@ namespace CineExpotronica2019.Helper
             this.Status = true;
         }
 
+        public Seat(int seatNumber)
+        {
+            this.SeatNumber = seatNumber;
+            this.Status = true;
+        }
+
         public string Row { get => _Row; set => _Row = value; }
         public int SeatNumber { get => _SeatNumber; set => _SeatNumber = value; }
         public bool Status { get => _Status; set => _Status = value; }

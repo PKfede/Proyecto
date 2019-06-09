@@ -20,18 +20,23 @@ namespace CineExpotronica2019.Model
             this.ventas = new HashSet<ventas>();
         }
     
-        public string idFuncion { get; set; }
+        public int idFuncion { get; set; }
         public string fechaFuncion { get; set; }
         public string horaFuncion { get; set; }
         public Nullable<int> asientosDisponibles { get; set; }
         public Nullable<int> asientosOcupados { get; set; }
         public string asientoAsignado { get; set; }
         public string diagrama { get; set; }
-        public int precio { get; set; }
-        public Nullable<int> fk_idPelicula { get; set; }
+        public Nullable<int> precio { get; set; }
+        public int fk_idPelicula { get; set; }
     
         public virtual pelicula pelicula { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ventas> ventas { get; set; }
+
+        public override string ToString()
+        {
+            return $"{horaFuncion} {fechaFuncion} {pelicula.nombre}";
+        }
     }
 }

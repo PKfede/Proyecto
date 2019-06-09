@@ -19,8 +19,9 @@ namespace CineExpotronica2019.Model
         public string hora { get; set; }
         public Nullable<decimal> importe { get; set; }
         public Nullable<int> fk_idTaquillero { get; set; }
-        public string idFuncion { get; set; }
-        public Nullable<int> precio { get; set; }
+        public Nullable<int> fk_idPelicula { get; set; }
+        public string fechaFuncion { get; set; }
+        public string horaFuncion { get; set; }
     
         public virtual funcion funcion { get; set; }
         public virtual usuario usuario { get; set; }

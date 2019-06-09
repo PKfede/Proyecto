@@ -17,6 +17,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
     </UserControl.Resources>
     <StackPanel >
         <Label Content="Agregar funcion" FontSize="18" Margin="220,30,0,0"/>
@@ -26,18 +27,16 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackPanel>
-                <Label Content="Nombre" Margin="0,30,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18"/>
                 <Label Content="Horario" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18"/>
                 <Label Content="Fecha" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18"/>
                 <Label Content="Pelicula" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18"/>
                 <Label Content="Tarifa" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18"/>
             </StackPanel>
             <StackPanel Grid.Column="2">
-                <TextBox Width="200" Text="{Binding IdFuncion, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Left" Margin="20,30,0,0"/>
                 <TextBox Width="200" Text="{Binding HoraFuncion, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0"/>
-                <TextBox Width="200" Text="{Binding FechaFuncion, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=LostFocus}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0"/>
-                <ComboBox Width="200" ItemsSource="{Binding ItemsComboBox}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0"/>
-                <ComboBox Width="200" ItemsSource="{Binding ItemsComboBox2}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0"/>
+                <DatePicker Width="200" Text="{Binding FechaFuncion, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0"/>
+                <ComboBox Width="200" ItemsSource="{Binding ItemsComboBox}" SelectedItem="{Binding Pelicula, Mode = OneWayToSource, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0"/>
+                <ComboBox Width="200" ItemsSource="{Binding ItemsComboBox2}" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0" SelectedIndex="0"/>
             </StackPanel>
         </Grid>
         <Button Content="Agregar funcion" Command="{Binding AddCommand}" Width="200" Height="30" FontSize="18" Margin="220,30,0,0" HorizontalAlignment="Left"/>

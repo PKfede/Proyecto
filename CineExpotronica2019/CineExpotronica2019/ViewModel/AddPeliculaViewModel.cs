@@ -2,6 +2,7 @@
 using CineExpotronica2019.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
@@ -64,13 +65,17 @@ namespace CineExpotronica2019.ViewModel
         }
         public void Delete(object parameter)
         {
+            if (SelectedMovie == null)
+            {
+                MessageBox.Show("Selecciona una película primero", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             var Res = MessageBox.Show("Are you sure you want to delete this movie ?", "Deleting Records", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             if(Res == MessageBoxResult.Yes)
             {
                 db.pelicula = base.Remove(SelectedMovie);
                 db.SaveChanges();
                 PeliculasList = _dbSet.ToList();
-
             }
         }
 

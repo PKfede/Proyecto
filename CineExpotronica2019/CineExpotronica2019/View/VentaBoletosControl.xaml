@@ -19,7 +19,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
             <Label  Grid.Column="0" Content="Seleccionar funcion" FontSize="18"/>
-            <ComboBox HorizontalAlignment="Left" Width="100" Grid.Column="1"/>
+            <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding FuncionList}"  Width="100" Grid.Column="1"/>
             </Grid>
             <Label Content="Cantidad Boletos" Margin="50,20,0,20"  FontSize="18"/>
             <Grid >
