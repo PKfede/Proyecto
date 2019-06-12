@@ -1,7 +1,7 @@
 CREATE DATABASE cine;
-
+GO
 USE cine;
-
+GO
 CREATE TABLE usuario(idTaquillero INT IDENTITY PRIMARY KEY NOT NULL, nombre VARCHAR(50), 
 apPaterno VARCHAR(50), apMaterno VARCHAR(50), telTaquillero VARCHAR (11), tipoUsuario VARCHAR(20),contra VARCHAR(20), nombre_usuario VARCHAR(10));
 
@@ -13,9 +13,10 @@ asientosDisponibles INT, asientosOcupados INT, asientoAsignado VARCHAR(3), diagr
 precio INT, fk_idPelicula INT FOREIGN KEY REFERENCES pelicula(idPelicula), 
 CONSTRAINT PK_FUNCION PRIMARY KEY(fk_idPelicula, fechaFuncion, horaFuncion));
 
-CREATE TABLE ventas(idVenta INT PRIMARY KEY IDENTITY, cantidad INT, hora VARCHAR(50), importe NUMERIC,
-fk_idTaquillero INT FOREIGN KEY REFERENCES usuario(idTaquillero), idFuncion VARCHAR(50), precio INT,
-CONSTRAINT fk_idFuncion FOREIGN KEY(idFuncion,precio) REFERENCES funcion(idFuncion,precio));
+CREATE TABLE ventas(idVenta INT PRIMARY KEY IDENTITY, cantidad_boletos INT, hora VARCHAR(50), importe NUMERIC,
+fk_idTaquillero INT FOREIGN KEY REFERENCES usuario(idTaquillero),tarifa INT,
+idPelicula INT, fechaFuncion varchar(50),horaFuncion varchar(50),
+CONSTRAINT fk_Funcion FOREIGN KEY(idPelicula,fechaFuncion,horaFuncion) REFERENCES funcion(fk_idPelicula, fechaFuncion, horaFuncion));
 
 GO
 
