@@ -31,12 +31,6 @@ namespace CineExpotronica2019.View
             set { this.DataContext = value; }
             get { return this.DataContext as AsientosMapaViewModel; }
         }
-        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           
-            Rectangle r = sender as Rectangle;
-            r.Fill = new SolidColorBrush(System.Windows.Media.Colors.Blue); ;
-            MessageBox.Show("seleccionado");
-        }
+        
     }
 }

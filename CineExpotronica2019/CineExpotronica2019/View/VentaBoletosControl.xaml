@@ -6,10 +6,34 @@
              xmlns:local="clr-namespace:CineExpotronica2019.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Image x:Name="checkBoxImage" Source="seat-libre.jpg"></Image>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkBoxImage" Property="Source" Value="seat-libre.jpg"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="checkBoxImage" Property="Source" Value="seat-ocupado.jpg"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="checkBoxImage" Property="Source" Value="seat-over.jpg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </UserControl.Resources>
         
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="320" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Margin="20">
@@ -19,7 +43,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
             <Label  Grid.Column="0" Content="Seleccionar funcion" FontSize="18"/>
-            <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding FuncionList}"  Width="100" Grid.Column="1"/>
+            <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding FuncionList}"  SelectedItem="{Binding CurrentFuncion, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="100" Grid.Column="1"/>
             </Grid>
             <Label Content="Cantidad Boletos" Margin="50,20,0,20"  FontSize="18"/>
             <Grid >
@@ -28,104 +52,75 @@
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="100" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="-" FontSize="30" Width="100"/>
-                <Label Grid.Column="1" Content="0" FontSize="18" HorizontalAlignment="Center"/>
-                <Button Grid.Column="3" Content="+" FontSize="30" Width="100"/>
+                <Button Grid.Column="0" Content="-" Command="{Binding LessTicketCommand}"  FontSize="30" Width="100"/>
+                <Label Grid.Column="1" Content="{Binding Cantidad_boletos, Mode=TwoWay}" FontSize="18" HorizontalAlignment="Center"/>
+                <Button Grid.Column="3" Content="+" Command="{Binding MoreTicketCommand}" FontSize="30" Width="100"/>
             </Grid>
         </StackPanel>
-        <Grid Grid.Column="1" RenderTransformOrigin="0.505,0.608" Height="550" VerticalAlignment="Top" Margin="-33,0,-22,-25" HorizontalAlignment="Right" Width="738">
-            <ItemsControl ItemsSource="{Binding SeatsTop}" Margin="-11,43,-24,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="751">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid  >
-                            <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
-                            <TextBlock  MouseLeftButtonDown="Grid_MouseLeftButtonUp"  Width="22px" Height="22px" Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" 
-                            Foreground="White" FontWeight="Bold"  Background="Transparent" />
-                        </Grid>
-                        <DataTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Seat" Property="Fill" Value="Red"/>
-                            </Trigger>
-                        </DataTemplate.Triggers>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+        <StackPanel Grid.Column="1">
+            <Grid  RenderTransformOrigin="0.505,0.608" Height="550" VerticalAlignment="Top" Margin="-33,0,-22,-25" HorizontalAlignment="Right" Width="738">
+                <ItemsControl ItemsSource="{Binding SeatsTop, Mode=OneWay}" Margin="-11,43,-24,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="751">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <CheckBox x:Name="Seat" IsChecked="{Binding Path=Status, Mode=TwoWay}" Width="25px" Height="25px" Margin="2px"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Height="29" Width="551" Background="White" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <ItemsControl ItemsSource="{Binding SeatsMid}"  Margin="-13,72,-61,0" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Width="812">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <CheckBox x:Name="Seat" IsChecked="{Binding Path=Status, Mode=TwoWay}" Width="25px" Height="25px" Margin="2px"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
 
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Height="29" Width="551" Background="White" VerticalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-            <ItemsControl ItemsSource="{Binding SeatsMid}"  Margin="-13,72,-61,0" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Width="812">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Rectangle x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" Width="25px" Height="25px" Stroke="Black" Fill="Green" Margin="2px"/>
-                            <TextBlock Text="{Binding}" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  TextAlignment="Center" VerticalAlignment="Center" 
-                            Foreground="White" FontWeight="Bold" />
-                        </Grid>
-                        <DataTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Seat" Property="Fill" Value="Red"/>
-                            </Trigger>
-                        </DataTemplate.Triggers>
-
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Height="175" Width="493" Background="White" VerticalAlignment="Top"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-            <ItemsControl ItemsSource="{Binding SeatsBot}" Margin="-11,247,27,0" Height="200" VerticalAlignment="Top">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Rectangle HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  x:Name="Seat"  Width="25px" Height="25px"
-                                     Stroke="Black" Fill="Green" Margin="2px">
-                                <!--<Rectangle HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  x:Name="Seat" MouseLeftButtonDown="Grid_MouseLeftButtonUp" MouseUp="Grid_MouseLeftButtonUp" Width="25px" Height="25px"
-                                     Stroke="Black" Fill="{Binding RcColor}" Margin="2px">-->
-                                <Rectangle.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding RcColor}"/>
-                                </Rectangle.InputBindings>
-                            </Rectangle>
-                            <TextBlock Text="{Binding}" MouseLeftButtonDown="Grid_MouseLeftButtonUp"  TextAlignment="Center" VerticalAlignment="Center" 
-                            Foreground="White" FontWeight="Bold" />
-                        </Grid>
-                        <DataTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Seat" Property="Fill" Value="Red"/>
-                            </Trigger>
-                        </DataTemplate.Triggers>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Height="203" Width="406" Background="White" VerticalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-            <Label Content="A" HorizontalAlignment="Left" Margin="120,413,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.797,-0.243"/>
-            <Label Content="B" HorizontalAlignment="Left" Margin="120,388,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="C" HorizontalAlignment="Left" Margin="121,357,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="D" HorizontalAlignment="Left" Margin="121,326,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="E" HorizontalAlignment="Left" Margin="121,299,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="F" HorizontalAlignment="Left" Margin="124,270,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="G" HorizontalAlignment="Left" Margin="120,237,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="H" HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="I" HorizontalAlignment="Left" Margin="123,181,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="J" HorizontalAlignment="Left" Margin="127,155,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="K" HorizontalAlignment="Left" Margin="123,124,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="L" HorizontalAlignment="Left" Margin="124,94,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="M" HorizontalAlignment="Left" Margin="121,64,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Content="N" HorizontalAlignment="Left" Margin="55,39,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Button Content="Pantalla" HorizontalAlignment="Left" Margin="120,474,0,0" VerticalAlignment="Top" Width="528" Height="50" FontSize="36" Background="#FF71757A"/>
-
-
-        </Grid>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Height="175" Width="493" Background="White" VerticalAlignment="Top"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <ItemsControl ItemsSource="{Binding SeatsBot}" Margin="-11,247,27,0" Height="200" VerticalAlignment="Top">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <CheckBox x:Name="Seat" IsChecked="{Binding Path=Status, Mode=TwoWay}" Width="25px" Height="25px" Margin="2px"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Height="203" Width="406" Background="White" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <Label Content="A" HorizontalAlignment="Left" Margin="120,413,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.797,-0.243"/>
+                <Label Content="B" HorizontalAlignment="Left" Margin="120,388,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="C" HorizontalAlignment="Left" Margin="121,357,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="D" HorizontalAlignment="Left" Margin="121,326,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="E" HorizontalAlignment="Left" Margin="121,299,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="F" HorizontalAlignment="Left" Margin="124,270,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="G" HorizontalAlignment="Left" Margin="120,237,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="H" HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="I" HorizontalAlignment="Left" Margin="123,181,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="J" HorizontalAlignment="Left" Margin="127,155,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="K" HorizontalAlignment="Left" Margin="123,124,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="L" HorizontalAlignment="Left" Margin="124,94,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="M" HorizontalAlignment="Left" Margin="121,64,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Label Content="N" HorizontalAlignment="Left" Margin="55,39,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <Button Content="Pantalla" HorizontalAlignment="Left" Margin="120,474,0,0" VerticalAlignment="Top" Width="528" Height="50" FontSize="36" Background="#FF71757A"/>
+            </Grid>
+            <Button Content="Confirmar ventas" Command ="{Binding SaveChangesCommand}" FontSize="18" Height="40" Width="200" Margin="30"/>
+        </StackPanel>
+        
 
     </Grid>
 </UserControl>

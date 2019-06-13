@@ -14,7 +14,6 @@ namespace CineExpotronica2019.ViewModel
     public class LoginViewModel : BaseViewModel<usuario>, IDataErrorInfo
     {
         private bool loginError;
-        private IEnumerable<usuario> users;
         #region Properties
         public string Nombre_usuario
         {
@@ -55,7 +54,7 @@ namespace CineExpotronica2019.ViewModel
         public DelegateCommand SignInCommand { get; private set; }
         #endregion 
         #region Execute
-        void OnLoginResponse(bool loginSucceded)
+        private void OnLoginResponse(bool loginSucceded)
         {
             if (loginSucceded)
             {
@@ -72,14 +71,15 @@ namespace CineExpotronica2019.ViewModel
         }
         public void Login(object parameter)
         {
-            if (_dbSet.Where(value => value.nombre_usuario == Nombre_usuario).Where(value => value.contra == Contra).Count() > 0)
-            {
-                OnLoginResponse(true);
-            }
-            else
-            {
-                MessageBox.Show("Inicio de sesion fallido", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            OnLoginResponse(true);
+            //if (_dbSet.Where(value => value.nombre_usuario == Nombre_usuario).Where(value => value.contra == Contra).Count() > 0)
+            //{
+            //    OnLoginResponse(true);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Inicio de sesion fallido", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
         public void SignIn(object parameter)
         {

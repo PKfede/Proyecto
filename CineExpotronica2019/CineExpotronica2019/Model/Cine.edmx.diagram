@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d0cc91188c1d4035b33169496d910ec1" Name="Diagram1">
+      <Diagram DiagramId="8254b86ef2624a958fefae7276f0cef6" Name="Diagram1">
         <EntityTypeShape EntityType="cineModel.funcion" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="cineModel.pelicula" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cineModel.usuario" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="cineModel.ventas" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="cineModel.FK__funcion__fk_idPe__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="cineModel.fk_idFuncion" ManuallyRouted="false" />
-        <AssociationConnector Association="cineModel.FK__ventas__fk_idTaq__4316F928" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cineModel.ventas" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="cineModel.FK__funcion__fk_idPe__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="cineModel.fk_Funcion" ManuallyRouted="false" />
+        <AssociationConnector Association="cineModel.FK__ventas__fk_idTaq__3E52440B" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

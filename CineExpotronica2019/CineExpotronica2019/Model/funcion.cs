@@ -36,7 +36,8 @@ namespace CineExpotronica2019.Model
 
         public override string ToString()
         {
-            return $"{horaFuncion} {fechaFuncion} {pelicula.nombre}";
+            return $"{fechaFuncion} {horaFuncion} {pelicula.nombre}";
         }
+
     }
 }

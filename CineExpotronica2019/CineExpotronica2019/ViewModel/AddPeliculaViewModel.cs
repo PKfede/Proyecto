@@ -112,7 +112,6 @@ namespace CineExpotronica2019.ViewModel
         string GetValidationError(string propertyName)
         {
             string errorMsg = null;
-
             if (propertyName.Equals("Nombre"))
             {
                 if (String.IsNullOrEmpty(Nombre))

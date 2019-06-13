@@ -194,6 +194,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="View\seat-libre.jpg" />
+    <Resource Include="View\seat-ocupado.jpg" />
+    <Resource Include="View\seat-over.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Cine.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Cine.edmx</DependentUpon>

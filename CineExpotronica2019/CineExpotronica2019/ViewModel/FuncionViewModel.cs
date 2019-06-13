@@ -61,6 +61,15 @@ namespace CineExpotronica2019.ViewModel
         #region Execute
         public void Add(object parameter)
         {
+            WorkingItem.diagrama = "0000000" +
+                "00000000000000000000000000000" +
+                "00000000000000000000000000000" +
+                "00000000000000000000000000000" +
+                "00000000000000000000000000000" +
+                "00000000000000000000000000000" +
+                "00000000000000000000000000000" +
+                "00000000000000000000000000000" +
+                "000000000";
             db.funcion = base.Add();
             db.SaveChanges();
             MessageBox.Show("Función guardada");

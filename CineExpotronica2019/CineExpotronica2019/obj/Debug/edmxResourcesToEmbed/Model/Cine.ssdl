@@ -41,15 +41,16 @@
       <PropertyRef Name="idVenta" />
     </Key>
     <Property Name="idVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cantidad" Type="int" />
+    <Property Name="cantidad_boletos" Type="int" />
     <Property Name="hora" Type="varchar" MaxLength="50" />
     <Property Name="importe" Type="numeric" Precision="18" Scale="0" />
     <Property Name="fk_idTaquillero" Type="int" />
-    <Property Name="fk_idPelicula" Type="int" />
+    <Property Name="tarifa" Type="int" />
+    <Property Name="idPelicula" Type="int" />
     <Property Name="fechaFuncion" Type="varchar" MaxLength="50" />
     <Property Name="horaFuncion" Type="varchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__funcion__fk_idPe__3A81B327">
+  <Association Name="FK__funcion__fk_idPe__3B75D760">
     <End Role="pelicula" Type="Self.pelicula" Multiplicity="1" />
     <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -61,7 +62,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ventas__fk_idTaq__4316F928">
+  <Association Name="FK__ventas__fk_idTaq__3E52440B">
     <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
     <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -73,7 +74,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_idFuncion">
+  <Association Name="fk_Funcion">
     <End Role="funcion" Type="Self.funcion" Multiplicity="0..1" />
     <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -83,7 +84,7 @@
         <PropertyRef Name="horaFuncion" />
       </Principal>
       <Dependent Role="ventas">
-        <PropertyRef Name="fk_idPelicula" />
+        <PropertyRef Name="idPelicula" />
         <PropertyRef Name="fechaFuncion" />
         <PropertyRef Name="horaFuncion" />
       </Dependent>
@@ -97,15 +98,15 @@
     <EntitySet Name="pelicula" EntityType="Self.pelicula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__funcion__fk_idPe__3A81B327" Association="Self.FK__funcion__fk_idPe__3A81B327">
+    <AssociationSet Name="FK__funcion__fk_idPe__3B75D760" Association="Self.FK__funcion__fk_idPe__3B75D760">
       <End Role="pelicula" EntitySet="pelicula" />
       <End Role="funcion" EntitySet="funcion" />
     </AssociationSet>
-    <AssociationSet Name="FK__ventas__fk_idTaq__4316F928" Association="Self.FK__ventas__fk_idTaq__4316F928">
+    <AssociationSet Name="FK__ventas__fk_idTaq__3E52440B" Association="Self.FK__ventas__fk_idTaq__3E52440B">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="ventas" EntitySet="ventas" />
     </AssociationSet>
-    <AssociationSet Name="fk_idFuncion" Association="Self.fk_idFuncion">
+    <AssociationSet Name="fk_Funcion" Association="Self.fk_Funcion">
       <End Role="funcion" EntitySet="funcion" />
       <End Role="ventas" EntitySet="ventas" />
     </AssociationSet>

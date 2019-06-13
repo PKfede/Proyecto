@@ -42,11 +42,12 @@
       <EntityTypeMapping TypeName="cineModel.ventas">
         <MappingFragment StoreEntitySet="ventas">
           <ScalarProperty Name="idVenta" ColumnName="idVenta" />
-          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="cantidad_boletos" ColumnName="cantidad_boletos" />
           <ScalarProperty Name="hora" ColumnName="hora" />
           <ScalarProperty Name="importe" ColumnName="importe" />
           <ScalarProperty Name="fk_idTaquillero" ColumnName="fk_idTaquillero" />
-          <ScalarProperty Name="fk_idPelicula" ColumnName="fk_idPelicula" />
+          <ScalarProperty Name="tarifa" ColumnName="tarifa" />
+          <ScalarProperty Name="idPelicula" ColumnName="idPelicula" />
           <ScalarProperty Name="fechaFuncion" ColumnName="fechaFuncion" />
           <ScalarProperty Name="horaFuncion" ColumnName="horaFuncion" />
         </MappingFragment>
