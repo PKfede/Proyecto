@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CineExpotronica2019"
         mc:Ignorable="d"
-        Title="Registro" Height="400" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Registro" Height="400" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Style.Triggers>

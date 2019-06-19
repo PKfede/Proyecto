@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace CineExpotronica2019.ViewModel
 {
@@ -54,32 +55,31 @@ namespace CineExpotronica2019.ViewModel
         public DelegateCommand SignInCommand { get; private set; }
         #endregion 
         #region Execute
-        private void OnLoginResponse(bool loginSucceded)
+        private void OnLoginResponse(usuario user)
         {
-            if (loginSucceded)
-            {
-                MainMenu window = new MainMenu() { DataContext = new ApplicationViewModel() };
-                window.Show();
+            MainMenu window = new MainMenu() { DataContext = new ApplicationViewModel() };
+            window.ViewModel.MainUser = user;
+            window.Show();
 
-                App.Current.MainWindow.Close();
-                App.Current.MainWindow = window;
-            }
-            else
-            {
-                LoginError = true;
-            }
+            App.Current.MainWindow.Close();
+            App.Current.MainWindow = window;
         }
         public void Login(object parameter)
         {
-            OnLoginResponse(true);
-            //if (_dbSet.Where(value => value.nombre_usuario == Nombre_usuario).Where(value => value.contra == Contra).Count() > 0)
-            //{
-            //    OnLoginResponse(true);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Inicio de sesion fallido", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            //OnLoginResponse(new usuario());
+            var passwordBox = parameter as PasswordBox;
+            var password = passwordBox.Password;
+            Contra = password;
+            if (_dbSet.Where(value => value.nombre_usuario == Nombre_usuario).Where(value => value.contra == Contra).Count() > 0)
+            {
+                usuario user = _dbSet.Where(value => value.nombre_usuario == Nombre_usuario).FirstOrDefault() as usuario;
+                OnLoginResponse(user);
+            }
+            else
+            {
+                MessageBox.Show("Inicio de sesion fallido", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
         public void SignIn(object parameter)
         {

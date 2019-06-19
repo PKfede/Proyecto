@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="cineModelStoreContainer" CdmEntityContainer="cineEntities">
+    <EntitySetMapping Name="boletoVendido">
+      <EntityTypeMapping TypeName="cineModel.boletoVendido">
+        <MappingFragment StoreEntitySet="boletoVendido">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+          <ScalarProperty Name="num_asiento" ColumnName="num_asiento" />
+          <ScalarProperty Name="fila_asiento" ColumnName="fila_asiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="funcion">
       <EntityTypeMapping TypeName="cineModel.funcion">
         <MappingFragment StoreEntitySet="funcion">
@@ -43,8 +53,8 @@
         <MappingFragment StoreEntitySet="ventas">
           <ScalarProperty Name="idVenta" ColumnName="idVenta" />
           <ScalarProperty Name="cantidad_boletos" ColumnName="cantidad_boletos" />
-          <ScalarProperty Name="hora" ColumnName="hora" />
           <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="idTaquillero" ColumnName="idTaquillero" />
           <ScalarProperty Name="fk_idTaquillero" ColumnName="fk_idTaquillero" />
           <ScalarProperty Name="tarifa" ColumnName="tarifa" />
           <ScalarProperty Name="idPelicula" ColumnName="idPelicula" />
@@ -53,6 +63,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="compraBoletos" FunctionName="cineModel.Store.compraBoletos" />
   </EntityContainerMapping>
 </Mapping>

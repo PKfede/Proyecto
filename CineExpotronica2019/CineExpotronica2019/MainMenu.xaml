@@ -4,36 +4,75 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CineExpotronica2019"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Menu principal" Height="650" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Menu principal" Height="650" Width="1200" MinHeight="700" MinWidth="1300" WindowStartupLocation="CenterScreen" WindowState="Maximized" FontFamily="Arial">
 
+    
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="220"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <StackPanel Background="Gray" Grid.RowSpan="5">
-                <StackPanel>
+            <StackPanel Background="#FF31577E" Grid.Column="0">
+                <StackPanel >
                     <Image Source="LogoCine.jpg" Margin="0,0,0,10"/>
-                    <Button Content="Crear funciones" FontSize="20" Command="{Binding SetCrearFuncionPage}" Height="50" Margin="0,0,0,10"></Button>
-                    <Button Content="Venta de boletos" FontSize="20" Command="{Binding SetVentaBoletosPage}" Height="50" Margin="0,0,0,10"></Button>
-                    <Button Content="Peliculas" FontSize="20" Command="{Binding SetMoviePage}" Height="50" Margin="0,0,0,10"></Button>
-                    <Button Content="Punto de corte" FontSize="20" Command="{Binding SetPuntoCortePage}" Height="50" Margin="0,0,0,10"></Button>
+                    <Button  FontSize="20" Command="{Binding SetCrearFuncionPage}" Foreground="#FF5C99D6" Height="50" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Width="200">
+                            <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10"/>
+                            <TextBlock VerticalAlignment="Center" Text="Crear funcion"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button FontSize="20" Command="{Binding SetVentaBoletosPage}" Foreground="#FF5C99D6" Height="50" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Width="200">
+                            <materialDesign:PackIcon Kind="Ticket" Foreground="#FF5C99D6" Height="25" Width="25" Margin="10"/>
+                            <TextBlock VerticalAlignment="Center" Text="Ventas"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button FontSize="20" Command="{Binding SetMoviePage}" Foreground="#FF5C99D6" Height="50" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Width="200">
+                            <materialDesign:PackIcon HorizontalAlignment="Left" Kind="Movie" Height="25" Width="25" Margin="10"/>
+                            <TextBlock VerticalAlignment="Center" Text="Películas"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button FontSize="20" Command="{Binding SetPuntoCortePage}" Foreground="#FF5C99D6" Height="50" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Width="200">
+                            <materialDesign:PackIcon HorizontalAlignment="Left" Kind="Money" Foreground="#FF5C99D6" Height="25" Width="25" Margin="10"/>
+                            <TextBlock VerticalAlignment="Center" Text="Punto de corte"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button FontSize="20" Command="{Binding SetRegistrosPage}" Foreground="#FF5C99D6" Height="50" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Width="200">
+                            <materialDesign:PackIcon HorizontalAlignment="Left" Kind="Record" Height="25" Width="25" Margin="10"/>
+                            <TextBlock VerticalAlignment="Center" Text="Registros"></TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
-                
             </StackPanel>
-            <ContentControl Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding CurrentPage}"></ContentControl>
+          
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Height="50" VerticalAlignment="Top" Background="#FF31577E">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding MainUser.nombre_completo}" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
+                        <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="true" Margin="10">
+                            <StackPanel Width="150">
+                                <Button Content="Cuenta" Command="{Binding SetAccountPage}"/>
+                                <Separator/>
+                                <Button Content="Cerrar sesión" Command="{Binding LogOutCommand}"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22">Cines Universal</TextBlock>
+                </Grid>
+                <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"></ContentControl>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

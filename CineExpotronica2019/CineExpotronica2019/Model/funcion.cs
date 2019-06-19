@@ -33,11 +33,9 @@ namespace CineExpotronica2019.Model
         public virtual pelicula pelicula { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ventas> ventas { get; set; }
-
         public override string ToString()
         {
             return $"{fechaFuncion} {horaFuncion} {pelicula.nombre}";
         }
-
     }
 }

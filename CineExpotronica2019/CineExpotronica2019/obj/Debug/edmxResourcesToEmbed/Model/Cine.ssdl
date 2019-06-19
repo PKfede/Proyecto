@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="cineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="boletoVendido">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idVenta" Type="int" />
+    <Property Name="num_asiento" Type="int" />
+    <Property Name="fila_asiento" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="funcion">
     <Key>
       <PropertyRef Name="fechaFuncion" />
@@ -42,14 +51,26 @@
     </Key>
     <Property Name="idVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cantidad_boletos" Type="int" />
-    <Property Name="hora" Type="varchar" MaxLength="50" />
     <Property Name="importe" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idTaquillero" Type="int" />
     <Property Name="fk_idTaquillero" Type="int" />
     <Property Name="tarifa" Type="int" />
     <Property Name="idPelicula" Type="int" />
     <Property Name="fechaFuncion" Type="varchar" MaxLength="50" />
     <Property Name="horaFuncion" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK__boletoVen__idVen__4222D4EF">
+    <End Role="ventas" Type="Self.ventas" Multiplicity="0..1" />
+    <End Role="boletoVendido" Type="Self.boletoVendido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ventas">
+        <PropertyRef Name="idVenta" />
+      </Principal>
+      <Dependent Role="boletoVendido">
+        <PropertyRef Name="idVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__funcion__fk_idPe__3B75D760">
     <End Role="pelicula" Type="Self.pelicula" Multiplicity="1" />
     <End Role="funcion" Type="Self.funcion" Multiplicity="*" />
@@ -70,7 +91,7 @@
         <PropertyRef Name="idTaquillero" />
       </Principal>
       <Dependent Role="ventas">
-        <PropertyRef Name="fk_idTaquillero" />
+        <PropertyRef Name="idTaquillero" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -90,14 +111,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="compraBoletos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="idFuncion" Type="varchar" Mode="In" />
-  </Function>
   <EntityContainer Name="cineModelStoreContainer">
+    <EntitySet Name="boletoVendido" EntityType="Self.boletoVendido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="funcion" EntityType="Self.funcion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="pelicula" EntityType="Self.pelicula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__boletoVen__idVen__4222D4EF" Association="Self.FK__boletoVen__idVen__4222D4EF">
+      <End Role="ventas" EntitySet="ventas" />
+      <End Role="boletoVendido" EntitySet="boletoVendido" />
+    </AssociationSet>
     <AssociationSet Name="FK__funcion__fk_idPe__3B75D760" Association="Self.FK__funcion__fk_idPe__3B75D760">
       <End Role="pelicula" EntitySet="pelicula" />
       <End Role="funcion" EntitySet="funcion" />

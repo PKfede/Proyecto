@@ -18,8 +18,13 @@ namespace CineExpotronica2019.ViewModel
             WorkingItem = new ventas();
             WorkingItem.cantidad_boletos = 0;
         }
+        public AsientosMapaViewModel(object user)
+        {
+            WorkingItem = new ventas();
+            WorkingItem.cantidad_boletos = 0;
+            MainUser = user as usuario;
+        }
         #region Properties Collection
-        private enum Rows { N, M, L, K, J, I, H, G, F, E, D, C, B, A };
         private ObservableCollection<Seat> seatsTop;
         public ObservableCollection<Seat> SeatsTop
         {
@@ -62,6 +67,7 @@ namespace CineExpotronica2019.ViewModel
                 if(value != null)
                 {
                     WorkingItem.funcion = value;
+                    WorkingItem.tarifa = value.precio;
                     GenerateDiagram();
                 }
             }
@@ -73,6 +79,16 @@ namespace CineExpotronica2019.ViewModel
             {
                 WorkingItem.cantidad_boletos = value;
                 NotifyPropertyChanged("Cantidad_boletos");
+            }
+        }
+
+        private usuario mainUser;
+        public usuario MainUser
+        {
+            get { return mainUser; }
+            set
+            {
+                mainUser = value;
             }
         }
         #endregion
@@ -96,61 +112,98 @@ namespace CineExpotronica2019.ViewModel
         #region Execute
         public void SaveChanges(object parameter)
         {
+            List<Seat> list = new List<Seat>();
+            int cont = 0;
             char[] aux = CurrentFuncion.diagrama.ToCharArray();
+
             foreach (Seat seat in SeatsTop)
+            {
+                if (seat.Status == true)
                 {
-                    if (seat.Status == true)
+                    if (aux[seat.Position] == '1')
                     {
-                        if (aux[seat.Position] == '1')
-                        {
-                            aux[seat.Position] = '0';
-                        }
-                    }
-                    else
-                    {
-                        if (aux[seat.Position] == '0')
-                        {
-                            aux[seat.Position] = '1';
-                        }
+                        aux[seat.Position] = '0';
                     }
                 }
+                else
+                {
+                    if (aux[seat.Position] == '0')
+                    {
+                        aux[seat.Position] = '1';
+                        list.Add(seat);
+                        cont++;
+                    }
+                }
+            }
             foreach (Seat seat in SeatsMid)
+            {
+                if (seat.Status == true)
                 {
-                    if (seat.Status == true)
+                    if (aux[seat.Position] == '1')
                     {
-                        if (aux[seat.Position] == '1')
-                        {
-                            aux[seat.Position] = '0';
-                        }
-                    }
-                    else
-                    {
-                        if (aux[seat.Position] == '0')
-                        {
-                            aux[seat.Position] = '1';
-                        }
+                        aux[seat.Position] = '0';
                     }
                 }
+                else
+                {
+                    if (aux[seat.Position] == '0')
+                    {
+                        aux[seat.Position] = '1';
+                        list.Add(seat);
+                        cont++;
+                    }
+                }
+            }
             foreach (Seat seat in SeatsBot)
+            {
+                if (seat.Status == true)
                 {
-                    if (seat.Status == true)
+                    if (aux[seat.Position] == '1')
                     {
-                        if (aux[seat.Position] == '1')
-                        {
-                            aux[seat.Position] = '0';
-                        }
-                    }
-                    else
-                    {
-                        if (aux[seat.Position] == '0')
-                        {
-                            aux[seat.Position] = '1';
-                        }
+                        aux[seat.Position] = '0';
                     }
                 }
-            db.funcion.Find(CurrentFuncion.fechaFuncion, CurrentFuncion.horaFuncion, CurrentFuncion.fk_idPelicula).diagrama= new string(aux);
-            db.SaveChanges();
-            
+                else
+                {
+                    if (aux[seat.Position] == '0')
+                    {
+                        aux[seat.Position] = '1';
+                        list.Add(seat);
+                        cont++;
+                    }
+                }
+            }
+
+            if(cont == Cantidad_boletos)
+            {
+                var Res = MessageBox.Show("¿Estás seguro que quieres confirmar la venta?", "Venta de boletos", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                if (Res == MessageBoxResult.Yes)
+                {
+                    db.funcion.Find(CurrentFuncion.fechaFuncion, CurrentFuncion.horaFuncion, CurrentFuncion.fk_idPelicula).diagrama= new string(aux);
+                    db.funcion.Find(CurrentFuncion.fechaFuncion, CurrentFuncion.horaFuncion, CurrentFuncion.fk_idPelicula).asientosDisponibles -= Cantidad_boletos;
+                    db.funcion.Find(CurrentFuncion.fechaFuncion, CurrentFuncion.horaFuncion, CurrentFuncion.fk_idPelicula).asientosOcupados += Cantidad_boletos;
+                    WorkingItem.importe = Cantidad_boletos * CurrentFuncion.precio;
+                    WorkingItem.idTaquillero= MainUser.idTaquillero;
+                    db.ventas.Add(WorkingItem);
+                    db.SaveChanges();
+                    foreach(Seat seat in list)
+                    {
+                        boletoVendido boleto = new boletoVendido();
+                        boleto.fila_asiento = seat.Row;
+                        boleto.num_asiento = seat.SeatNumber;
+                        boleto.ventas = WorkingItem;
+                        db.boletoVendido.Add(boleto);
+                    }
+                    db.SaveChanges();
+                    MessageBox.Show("Venta exitosa");
+                    Cantidad_boletos = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error en la cantidad de boletos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
         public void MoreTicket(object parameter)
         {
@@ -173,6 +226,9 @@ namespace CineExpotronica2019.ViewModel
         {
             if (CurrentFuncion == null)
                 return false;
+            if (Cantidad_boletos < 1)
+                return false;
+
             return true;
         }
 
@@ -180,6 +236,8 @@ namespace CineExpotronica2019.ViewModel
         public void GenerateDiagram()
         {
             //0 es false 1 es true
+            string[] mid = { "M", "L", "K", "J", "I", "H" };
+            string[] bot = { "G", "F", "E", "D", "C", "B", "A" };
             char[] aux = CurrentFuncion.diagrama.ToCharArray();
             int cont = 0;
             SeatsTop = new ObservableCollection<Seat>();
@@ -187,42 +245,43 @@ namespace CineExpotronica2019.ViewModel
             {
                 if (aux[cont] == '0')
                 {
-                    SeatsTop.Add(new Seat(true, cont));
+                    SeatsTop.Add(new Seat("N", i+1, true, cont));
                 }
                 else
                 {
-                    SeatsTop.Add(new Seat(false, cont));
+                    SeatsTop.Add(new Seat("N", i + 1, false, cont) { IsEnabled = false });
                 }
                 cont++;
             }
             SeatsMid = new ObservableCollection<Seat>();
-            for (int j = 0; j < 6; j++)
+            for (int i = 0; i < 6; i++)
             {
-                for (int i = 0; i < 17; i++)
+                for (int j = 0; j < 17; j++)
                 {
                     if (aux[cont] == '0')
                     {
-                        SeatsMid.Add(new Seat(true, cont));
+                        
+                        SeatsMid.Add(new Seat(mid[i],j+1,true, cont));
                     }
                     else
                     {
-                        SeatsMid.Add(new Seat(false, cont));
+                        SeatsMid.Add(new Seat(mid[i], j + 1, false, cont) { IsEnabled = false});
                     }
                     cont++;
                 }
             }
             SeatsBot = new ObservableCollection<Seat>();
-            for (int j = 0; j < 7; j++)
+            for (int i = 0; i < 7; i++)
             {
-                for (int i = 0; i < 14; i++)
+                for (int j = 0; j < 14; j++)
                 {
                     if (aux[cont] == '0')
                     {
-                        SeatsBot.Add(new Seat(true, cont));
+                        SeatsBot.Add(new Seat(bot[i], j + 1, true, cont));
                     }
                     else
                     {
-                        SeatsBot.Add(new Seat(false, cont));
+                        SeatsBot.Add(new Seat(bot[i], j + 1, false, cont) { IsEnabled = false });
                     }
                     cont++;
                 }

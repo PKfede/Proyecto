@@ -17,14 +17,14 @@ namespace CineExpotronica2019.ViewModel
 
         public DelegateCommand AddCommand { get; private set; }
         public List<pelicula> ItemsComboBox { get; private set; }
-        public ObservableCollection<decimal> ItemsComboBox2 { get; private set; }
+        public ObservableCollection<string> ItemsComboBox2 { get; private set; }
         public FuncionViewModel()
         {   
             ItemsComboBox = db.pelicula.ToList();
-            ItemsComboBox2 = new ObservableCollection<decimal>()
+            ItemsComboBox2 = new ObservableCollection<string>()
             {
-                35,
-                40
+                "35",
+                "40",
             };
             WorkingItem = new funcion();
             _dbSet = db.funcion as DbSet<funcion>;
@@ -48,12 +48,23 @@ namespace CineExpotronica2019.ViewModel
                 WorkingItem.horaFuncion = value;
             }
         }
+        private string precio;
+        public string Precio
+        {
+            get { return precio; }
+            set
+            {
+                precio = value;
+                NotifyPropertyChanged("Precio");
+            }
+        }
         public pelicula Pelicula
         {
             get { return WorkingItem.pelicula; }
             set
             {
                 WorkingItem.pelicula = value;
+                NotifyPropertyChanged("Pelicula");
             }
         }
         #endregion
@@ -61,7 +72,9 @@ namespace CineExpotronica2019.ViewModel
         #region Execute
         public void Add(object parameter)
         {
-            WorkingItem.diagrama = "0000000" +
+            if(db.funcion.Find(FechaFuncion, HoraFuncion, Pelicula.idPelicula) == null)
+            {
+                WorkingItem.diagrama = "0000000" +
                 "00000000000000000000000000000" +
                 "00000000000000000000000000000" +
                 "00000000000000000000000000000" +
@@ -70,9 +83,18 @@ namespace CineExpotronica2019.ViewModel
                 "00000000000000000000000000000" +
                 "00000000000000000000000000000" +
                 "000000000";
-            db.funcion = base.Add();
-            db.SaveChanges();
-            MessageBox.Show("Función guardada");
+                WorkingItem.asientosDisponibles = 219;
+                WorkingItem.asientosOcupados = 0;
+                WorkingItem.precio = Int32.Parse(Precio);
+                db.funcion = base.Add();
+                db.SaveChanges();
+                MessageBox.Show("Función guardada");
+            }
+            else
+            {
+                MessageBox.Show("Error: Función existente", "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            
         }
         
         #endregion
@@ -104,13 +126,13 @@ namespace CineExpotronica2019.ViewModel
         #endregion
 
         #region Validation
-        static readonly string[] ValidatesProperties =
+        public readonly string[] ValidatesProperties =
         {
             "FechaFuncion",
             "HoraFuncion",
             "Pelicula"
         };
-        string GetValidationError(string propertyName)
+        public string GetValidationError(string propertyName)
         {
             string errorMsg = null;
 
@@ -129,7 +151,7 @@ namespace CineExpotronica2019.ViewModel
             }
             else if(propertyName.Equals("Pelicula"))
             {
-                if (String.IsNullOrEmpty(HoraFuncion))
+                if (Pelicula == null)
                     errorMsg = "Es un campo obligatorio";
             }
             return errorMsg;

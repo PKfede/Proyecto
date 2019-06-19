@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CineExpotronica2019"
         mc:Ignorable="d"
-        Title="LoginV" Height="650" Width="350" WindowStartupLocation="CenterScreen">
+        Title="LoginV" Height="650" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <StackPanel Margin="0,0,0,0" HorizontalAlignment="center" Width="350">
         <Image Source="LogoCine.jpg" />
         <Label Content="Usuario" FontSize ="20" Foreground="#FF2F7FB0" HorizontalAlignment="Center"/>
@@ -14,10 +14,10 @@
         </Border>
         <Label Content="Contraseña" FontSize ="20" Foreground="#FF2F7FB0" HorizontalAlignment="Center"/>
         <Border BorderThickness="1" BorderBrush="#FF2F7FB0" Width="200">
-            <TextBox Text="{Binding Contra, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="30"/>
+            <PasswordBox Name="txtContra" Width="200" Height="30"/>
         </Border>
         <!--ContentTemplate="{StaticResource ResourceKey=WindowOpen}"-->
-        <Button Content ="Iniciar" Command="{Binding GetLoginCommand}" FontSize ="20" Width="200" Height="40" Margin="0,30,0,5"/>
+        <Button Content ="Iniciar" Command="{Binding GetLoginCommand}" CommandParameter="{Binding ElementName=txtContra}" FontSize ="20" Width="200" Height="40" Margin="0,30,0,5"/>
         <Button Name="btnRegistrarse" Command="{Binding SignInCommand}" Content="Registrarse" FontSize="15" Foreground="#FF2F7FB0" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"/>
     </StackPanel>
 </Window>

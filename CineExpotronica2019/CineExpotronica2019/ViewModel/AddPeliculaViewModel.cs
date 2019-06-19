@@ -109,7 +109,7 @@ namespace CineExpotronica2019.ViewModel
 
         #region Validations
         static readonly string[] ValidatesProperties = { "Nombre" };
-        string GetValidationError(string propertyName)
+        public string GetValidationError(string propertyName)
         {
             string errorMsg = null;
             if (propertyName.Equals("Nombre"))

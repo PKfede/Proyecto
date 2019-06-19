@@ -30,3 +30,9 @@ C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\Ven
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\VentaBoletosControl.baml
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\CineExpotronica2019.csprojAssemblyReference.cache
 C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\App.baml
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\bin\Debug\MaterialDesignColors.dll
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\RegistrosControl.g.cs
+C:\Users\Kike\Desktop\CineExpotronica2019\CineExpotronica2019\obj\Debug\View\RegistrosControl.baml
